@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TiendaVirtual
+namespace TiendaVirtual.Ventanas
 {
-    public partial class Form1 : Form
+    public partial class vtnProducto : Form
     {
-        public Form1()
+        public vtnProducto()
         {
             InitializeComponent();
         }
