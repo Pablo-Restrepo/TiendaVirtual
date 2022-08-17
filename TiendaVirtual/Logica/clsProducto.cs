@@ -1,6 +1,8 @@
 ﻿using AppGestionConsorcio.datos;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,13 +19,38 @@ namespace TiendaVirtual.Logica
         public byte[] prodFoto = new byte[0];
 
         AccesoDatos dt = new AccesoDatos();
-        public int crearProducto(int id, string nombre, int precio, string descripcion, string categoria)
+        public List<clsProducto> consultarProductos()
         {
-            int resultado;
+            List<clsProducto> datos = new List<clsProducto>();
+            
+            DataSet dataSet = new DataSet();
             string consulta;
-            consulta = "INSERT INTO PRODUCTO(PRO_ID , PRO_NOMBRE , PRO_PRECIO , PRO_DESCRIPCION , PRO_CATEGORIA , PRO_IMAGEN) VALUES(1234, 'Teclado', 200000, 'Teclado mecanico', 'Tecnologia', null)";
-            resultado = dt.ejecutarDML(consulta);
-            return resultado;
+            consulta = "SELECT * FROM PRODUCTO";
+            dataSet = dt.ejecutarSELECT(consulta);
+
+            if (dataSet.Tables[0].Rows.Count > 0)
+            {
+                for (int j = 0; j < dataSet.Tables[0].Rows.Count; j++)
+                {
+                    clsProducto producto = new clsProducto();
+                    producto.ProId = Int32.Parse(dataSet.Tables[0].Rows[j].ItemArray[0].ToString());
+                    producto.ProNombre = dataSet.Tables[0].Rows[j].ItemArray[1].ToString();
+                    producto.ProPrecio = float.Parse(dataSet.Tables[0].Rows[j].ItemArray[2].ToString());
+                    producto.ProCategoria = dataSet.Tables[0].Rows[j].ItemArray[3].ToString();
+                    producto.ProDescripcion = dataSet.Tables[0].Rows[j].ItemArray[4].ToString();
+                    if (dataSet.Tables[0].Rows[j].ItemArray[5].ToString().Equals(""))
+                    {
+                        byte[] imagen = File.ReadAllBytes("..\\..\\Resources\\default.png");
+                        producto.prodFoto = imagen;
+                    }
+                    else
+                    {
+                        producto.prodFoto = (byte[])dataSet.Tables[0].Rows[j].ItemArray[5];
+                    }
+                    datos.Add(producto);
+                }
+            }
+            return datos;
         }
     }
 }

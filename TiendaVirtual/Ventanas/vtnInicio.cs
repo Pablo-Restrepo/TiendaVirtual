@@ -24,10 +24,12 @@ namespace TiendaVirtual.Ventanas
         private int imagen = 1;
         private PictureBox pb;
         List<clsProducto> datosProducto = new List<clsProducto>();
+        clsProducto producto = new clsProducto();
         public Interface1 contrato { get; set; }
         public vtnInicio()
         {
             InitializeComponent();
+            datosProductos();
             generarBloques();
             generarBloques2();
             guardarImagenesPromo();
@@ -91,19 +93,18 @@ namespace TiendaVirtual.Ventanas
                 pb.TabIndex = i;
                 pb.Size = new Size(ancho - 40, alto - 110);
                 pb.Location = new Point(20, 20);
-                byte[] imagen1 = File.ReadAllBytes("..\\..\\Resources\\teclado.jpg");
-                ms = new MemoryStream(imagen1);
+                ms = new MemoryStream(datosProducto[i].prodFoto);
                 pb.BackgroundImage = Image.FromStream(ms);
                 pb.BackgroundImageLayout = ImageLayout.Stretch;
                 pb.Cursor = Cursors.Hand;
 
-                title.Text = "Teclado";
+                title.Text = datosProducto[i].ProNombre.ToString();
                 title.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 title.ForeColor = Color.White;
                 title.TabIndex = i;
                 title.Cursor = Cursors.Hand;
 
-                costo.Text = "$200.000";
+                costo.Text = "$" + datosProducto[i].ProPrecio.ToString();
                 costo.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 costo.TabIndex = i;
                 costo.ForeColor = Color.White;
@@ -240,6 +241,10 @@ namespace TiendaVirtual.Ventanas
             imgList.Add(Properties.Resources.promo2);
             imgList.Add(Properties.Resources.promo3);
             imgList.Add(Properties.Resources.promo4);
+        }
+        private void datosProductos()
+        {
+            datosProducto = producto.consultarProductos();
         }
     }
 }
