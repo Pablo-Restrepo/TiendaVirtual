@@ -52,8 +52,8 @@
     <Compile Include="Datos\AccesoDatos.cs" />
     <Compile Include="Logica\Cache.cs" />
     <Compile Include="Logica\Interface1.cs" />
-    <Compile Include="Logica\Producto.cs" />
-    <Compile Include="Logica\Usuario.cs" />
+    <Compile Include="Logica\clsProducto.cs" />
+    <Compile Include="Logica\clsUsuario.cs" />
     <Compile Include="Botones\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -175,6 +175,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\proddescuent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vendedores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\promo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\promo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\promo4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

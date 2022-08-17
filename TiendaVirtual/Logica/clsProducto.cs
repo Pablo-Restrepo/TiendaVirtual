@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace TiendaVirtual.Logica
 {
-    class Producto
+    class clsProducto
     {
+        public long ProId;
+        public string ProNombre;
+        public float ProPrecio;
+        public string ProCategoria;
+        public string ProDescripcion;
+        public byte[] prodFoto = new byte[0];
+
         AccesoDatos dt = new AccesoDatos();
         public int crearProducto(int id, string nombre, int precio, string descripcion, string categoria)
         {

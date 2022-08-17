@@ -28,60 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.pbProDesc = new System.Windows.Forms.FlowLayoutPanel();
+            this.pbVendedores = new System.Windows.Forms.FlowLayoutPanel();
+            this.pbProdMasComp = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelBottom = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pbVenderores = new TiendaVirtual.Styles.RoundedButton();
-            this.pbProDesc = new TiendaVirtual.Styles.RoundedButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.flowLayoutInicio = new System.Windows.Forms.FlowLayoutPanel();
             this.pbPromo = new TiendaVirtual.Styles.RoundedButton();
-            this.pbProdMasComp = new TiendaVirtual.Styles.RoundedButton();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelTop.SuspendLayout();
+            this.panelBottom.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelTop
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.pbVenderores);
-            this.panel1.Controls.Add(this.pbProDesc);
-            this.panel1.Controls.Add(this.pbPromo);
-            this.panel1.Controls.Add(this.pbProdMasComp);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(921, 237);
-            this.panel1.TabIndex = 2;
+            this.panelTop.BackColor = System.Drawing.Color.Transparent;
+            this.panelTop.Controls.Add(this.pbProDesc);
+            this.panelTop.Controls.Add(this.pbVendedores);
+            this.panelTop.Controls.Add(this.pbProdMasComp);
+            this.panelTop.Controls.Add(this.pbPromo);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(921, 237);
+            this.panelTop.TabIndex = 2;
             // 
-            // panel2
+            // pbProDesc
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panel2.Controls.Add(this.flowLayoutPanel3);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 237);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(921, 363);
-            this.panel2.TabIndex = 3;
+            this.pbProDesc.BackColor = System.Drawing.Color.Transparent;
+            this.pbProDesc.BackgroundImage = global::TiendaVirtual.Properties.Resources.proddescuent;
+            this.pbProDesc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbProDesc.Location = new System.Drawing.Point(1253, 12);
+            this.pbProDesc.Name = "pbProDesc";
+            this.pbProDesc.Size = new System.Drawing.Size(321, 211);
+            this.pbProDesc.TabIndex = 18;
+            this.pbProDesc.Visible = false;
             // 
-            // label2
+            // pbVendedores
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Montserrat ExtraBold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(7, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(237, 27);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Productos de Interes";
+            this.pbVendedores.BackgroundImage = global::TiendaVirtual.Properties.Resources.vendedores;
+            this.pbVendedores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbVendedores.Location = new System.Drawing.Point(907, 12);
+            this.pbVendedores.Name = "pbVendedores";
+            this.pbVendedores.Size = new System.Drawing.Size(321, 211);
+            this.pbVendedores.TabIndex = 18;
+            this.pbVendedores.Visible = false;
+            // 
+            // pbProdMasComp
+            // 
+            this.pbProdMasComp.BackColor = System.Drawing.Color.Transparent;
+            this.pbProdMasComp.BackgroundImage = global::TiendaVirtual.Properties.Resources.prodmascomp;
+            this.pbProdMasComp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbProdMasComp.Location = new System.Drawing.Point(563, 12);
+            this.pbProdMasComp.Name = "pbProdMasComp";
+            this.pbProdMasComp.Size = new System.Drawing.Size(321, 211);
+            this.pbProdMasComp.TabIndex = 17;
+            // 
+            // panelBottom
+            // 
+            this.panelBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelBottom.BackColor = System.Drawing.Color.Transparent;
+            this.panelBottom.Controls.Add(this.button4);
+            this.panelBottom.Controls.Add(this.button3);
+            this.panelBottom.Controls.Add(this.button2);
+            this.panelBottom.Controls.Add(this.button1);
+            this.panelBottom.Controls.Add(this.label2);
+            this.panelBottom.Controls.Add(this.flowLayoutInicio);
+            this.panelBottom.Location = new System.Drawing.Point(0, 241);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Size = new System.Drawing.Size(921, 359);
+            this.panelBottom.TabIndex = 3;
             // 
             // button4
             // 
@@ -96,7 +117,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Transparent;
-            this.button4.Location = new System.Drawing.Point(777, 52);
+            this.button4.Location = new System.Drawing.Point(777, 54);
             this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 35);
@@ -116,7 +137,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Transparent;
-            this.button3.Location = new System.Drawing.Point(272, 52);
+            this.button3.Location = new System.Drawing.Point(272, 54);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 35);
@@ -136,7 +157,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(144, 52);
+            this.button2.Location = new System.Drawing.Point(144, 54);
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 35);
@@ -156,7 +177,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(12, 52);
+            this.button1.Location = new System.Drawing.Point(12, 54);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 35);
@@ -164,53 +185,32 @@
             this.button1.Text = "Hogar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel3
+            // label2
             // 
-            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Montserrat ExtraBold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(7, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(237, 27);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Productos de Interes";
+            // 
+            // flowLayoutInicio
+            // 
+            this.flowLayoutInicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel3.AutoSize = true;
-            this.flowLayoutPanel3.BackColor = System.Drawing.Color.DimGray;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 98);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(891, 265);
-            this.flowLayoutPanel3.TabIndex = 18;
-            // 
-            // pbVenderores
-            // 
-            this.pbVenderores.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pbVenderores.BackgroundImage = global::TiendaVirtual.Properties.Resources.proddescuent;
-            this.pbVenderores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbVenderores.FlatAppearance.BorderSize = 0;
-            this.pbVenderores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.pbVenderores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.pbVenderores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pbVenderores.Location = new System.Drawing.Point(903, 12);
-            this.pbVenderores.Name = "pbVenderores";
-            this.pbVenderores.Size = new System.Drawing.Size(321, 211);
-            this.pbVenderores.TabIndex = 3;
-            this.pbVenderores.UseVisualStyleBackColor = true;
-            this.pbVenderores.Visible = false;
-            // 
-            // pbProDesc
-            // 
-            this.pbProDesc.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pbProDesc.BackgroundImage = global::TiendaVirtual.Properties.Resources.proddescuent;
-            this.pbProDesc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbProDesc.FlatAppearance.BorderSize = 0;
-            this.pbProDesc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.pbProDesc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.pbProDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pbProDesc.Location = new System.Drawing.Point(744, 12);
-            this.pbProDesc.Name = "pbProDesc";
-            this.pbProDesc.Size = new System.Drawing.Size(321, 211);
-            this.pbProDesc.TabIndex = 2;
-            this.pbProDesc.UseVisualStyleBackColor = true;
-            this.pbProDesc.Visible = false;
+            this.flowLayoutInicio.AutoSize = true;
+            this.flowLayoutInicio.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutInicio.Location = new System.Drawing.Point(12, 94);
+            this.flowLayoutInicio.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutInicio.Name = "flowLayoutInicio";
+            this.flowLayoutInicio.Size = new System.Drawing.Size(909, 259);
+            this.flowLayoutInicio.TabIndex = 18;
             // 
             // pbPromo
             // 
-            this.pbPromo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pbPromo.BackColor = System.Drawing.Color.Navy;
             this.pbPromo.BackgroundImage = global::TiendaVirtual.Properties.Resources.promo2;
             this.pbPromo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbPromo.FlatAppearance.BorderSize = 0;
@@ -221,22 +221,7 @@
             this.pbPromo.Name = "pbPromo";
             this.pbPromo.Size = new System.Drawing.Size(526, 211);
             this.pbPromo.TabIndex = 0;
-            this.pbPromo.UseVisualStyleBackColor = true;
-            // 
-            // pbProdMasComp
-            // 
-            this.pbProdMasComp.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pbProdMasComp.BackgroundImage = global::TiendaVirtual.Properties.Resources.prodmascomp;
-            this.pbProdMasComp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbProdMasComp.FlatAppearance.BorderSize = 0;
-            this.pbProdMasComp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.pbProdMasComp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.pbProdMasComp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pbProdMasComp.Location = new System.Drawing.Point(568, 12);
-            this.pbProdMasComp.Name = "pbProdMasComp";
-            this.pbProdMasComp.Size = new System.Drawing.Size(321, 211);
-            this.pbProdMasComp.TabIndex = 1;
-            this.pbProdMasComp.UseVisualStyleBackColor = true;
+            this.pbPromo.UseVisualStyleBackColor = false;
             // 
             // vtnInicio
             // 
@@ -245,15 +230,15 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(42)))));
             this.ClientSize = new System.Drawing.Size(921, 600);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelBottom);
+            this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "vtnInicio";
             this.Text = "vtnInicio";
             this.Resize += new System.EventHandler(this.vtnInicio_Resize);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelTop.ResumeLayout(false);
+            this.panelBottom.ResumeLayout(false);
+            this.panelBottom.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -261,16 +246,16 @@
         #endregion
 
         private Styles.RoundedButton pbPromo;
-        private Styles.RoundedButton pbProdMasComp;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private Styles.RoundedButton pbProDesc;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private Styles.RoundedButton pbVenderores;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutInicio;
+        private System.Windows.Forms.FlowLayoutPanel pbProdMasComp;
+        private System.Windows.Forms.FlowLayoutPanel pbVendedores;
+        private System.Windows.Forms.FlowLayoutPanel pbProDesc;
     }
 }

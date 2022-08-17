@@ -143,5 +143,15 @@ namespace TiendaVirtual
             aux.contrato = this;
             abrirFormHija(aux);
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lblSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
