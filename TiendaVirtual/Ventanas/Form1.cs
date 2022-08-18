@@ -12,7 +12,7 @@ using TiendaVirtual.Ventanas;
 
 namespace TiendaVirtual
 {
-    public partial class Form1 : Form, Interface1
+    public partial class Form1 : Form, IForm
     {
         private Boolean bandera = true;
         private Boolean bandera2 = true;
@@ -20,9 +20,13 @@ namespace TiendaVirtual
         public Form1()
         {
             InitializeComponent();
-            vtnInicio aux = new vtnInicio();
-            aux.contrato = this;
+            vtnInicio aux = new vtnInicio
+            {
+                contrato = this
+            };
             abrirFormHija(aux);
+            Cache.User = "alonso123";
+            lblUser.Text = Cache.User;
         }
 
         private void txtBuscar_Click(object sender, EventArgs e)
@@ -132,15 +136,19 @@ namespace TiendaVirtual
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            vtnInicio aux = new vtnInicio();
-            aux.contrato = this;
+            vtnInicio aux = new vtnInicio
+            {
+                contrato = this
+            };
             abrirFormHija(aux);
         }
 
         private void lblInicio_Click(object sender, EventArgs e)
         {
-            vtnInicio aux = new vtnInicio();
-            aux.contrato = this;
+            vtnInicio aux = new vtnInicio
+            {
+                contrato = this
+            };
             abrirFormHija(aux);
         }
 
@@ -152,6 +160,76 @@ namespace TiendaVirtual
         private void lblSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnCompras());
+        }
+
+        private void lblCompras_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnCompras());
+        }
+
+        private void btnFavoritos_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnFavoritos());
+        }
+
+        private void lblFavoritos_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnFavoritos());
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnCategorias());
+        }
+
+        private void lblCategorias_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnCategorias());
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnVentas());
+        }
+
+        private void lblVentas_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnVentas());
+        }
+
+        private void btnEstadisticas_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnEstadisticas());
+        }
+
+        private void lblEstadisticas_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnEstadisticas());
+        }
+
+        private void btnPromocionales_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnPromocionales());
+        }
+
+        private void lblPromocionales_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnPromocionales());
+        }
+
+        private void btnInformacion_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnInfo());
+        }
+
+        private void lblInformacion_Click(object sender, EventArgs e)
+        {
+            abrirFormHija(new vtnInfo());
         }
     }
 }

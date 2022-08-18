@@ -136,6 +136,7 @@ namespace TiendaVirtual
             this.btnInformacion.Size = new System.Drawing.Size(36, 35);
             this.btnInformacion.TabIndex = 23;
             this.btnInformacion.UseVisualStyleBackColor = true;
+            this.btnInformacion.Click += new System.EventHandler(this.btnInformacion_Click);
             // 
             // lblInformacion
             // 
@@ -151,6 +152,7 @@ namespace TiendaVirtual
             this.lblInformacion.TabIndex = 22;
             this.lblInformacion.Text = "        Info";
             this.lblInformacion.Visible = false;
+            this.lblInformacion.Click += new System.EventHandler(this.lblInformacion_Click);
             // 
             // btnSalir
             // 
@@ -199,6 +201,7 @@ namespace TiendaVirtual
             this.btnPromocionales.Size = new System.Drawing.Size(36, 35);
             this.btnPromocionales.TabIndex = 19;
             this.btnPromocionales.UseVisualStyleBackColor = true;
+            this.btnPromocionales.Click += new System.EventHandler(this.btnPromocionales_Click);
             // 
             // lblPromocionales
             // 
@@ -213,6 +216,7 @@ namespace TiendaVirtual
             this.lblPromocionales.TabIndex = 18;
             this.lblPromocionales.Text = "        Publicidad";
             this.lblPromocionales.Visible = false;
+            this.lblPromocionales.Click += new System.EventHandler(this.lblPromocionales_Click);
             // 
             // btnEstadisticas
             // 
@@ -228,6 +232,7 @@ namespace TiendaVirtual
             this.btnEstadisticas.Size = new System.Drawing.Size(36, 35);
             this.btnEstadisticas.TabIndex = 17;
             this.btnEstadisticas.UseVisualStyleBackColor = true;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
             // lblEstadisticas
             // 
@@ -242,6 +247,7 @@ namespace TiendaVirtual
             this.lblEstadisticas.TabIndex = 16;
             this.lblEstadisticas.Text = "        Estadisticas";
             this.lblEstadisticas.Visible = false;
+            this.lblEstadisticas.Click += new System.EventHandler(this.lblEstadisticas_Click);
             // 
             // btnVentas
             // 
@@ -257,6 +263,7 @@ namespace TiendaVirtual
             this.btnVentas.Size = new System.Drawing.Size(36, 35);
             this.btnVentas.TabIndex = 15;
             this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // lblVentas
             // 
@@ -271,6 +278,7 @@ namespace TiendaVirtual
             this.lblVentas.TabIndex = 14;
             this.lblVentas.Text = "        Ventas";
             this.lblVentas.Visible = false;
+            this.lblVentas.Click += new System.EventHandler(this.lblVentas_Click);
             // 
             // btnCategorias
             // 
@@ -286,6 +294,7 @@ namespace TiendaVirtual
             this.btnCategorias.Size = new System.Drawing.Size(36, 35);
             this.btnCategorias.TabIndex = 13;
             this.btnCategorias.UseVisualStyleBackColor = true;
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
             // 
             // lblCategorias
             // 
@@ -300,6 +309,7 @@ namespace TiendaVirtual
             this.lblCategorias.TabIndex = 12;
             this.lblCategorias.Text = "        Categorias";
             this.lblCategorias.Visible = false;
+            this.lblCategorias.Click += new System.EventHandler(this.lblCategorias_Click);
             // 
             // btnFavoritos
             // 
@@ -315,6 +325,7 @@ namespace TiendaVirtual
             this.btnFavoritos.Size = new System.Drawing.Size(36, 35);
             this.btnFavoritos.TabIndex = 11;
             this.btnFavoritos.UseVisualStyleBackColor = true;
+            this.btnFavoritos.Click += new System.EventHandler(this.btnFavoritos_Click);
             // 
             // lblFavoritos
             // 
@@ -329,6 +340,7 @@ namespace TiendaVirtual
             this.lblFavoritos.TabIndex = 10;
             this.lblFavoritos.Text = "        Favoritos";
             this.lblFavoritos.Visible = false;
+            this.lblFavoritos.Click += new System.EventHandler(this.lblFavoritos_Click);
             // 
             // btnCompras
             // 
@@ -344,6 +356,7 @@ namespace TiendaVirtual
             this.btnCompras.Size = new System.Drawing.Size(36, 35);
             this.btnCompras.TabIndex = 9;
             this.btnCompras.UseVisualStyleBackColor = true;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
             // lblCompras
             // 
@@ -358,6 +371,7 @@ namespace TiendaVirtual
             this.lblCompras.TabIndex = 8;
             this.lblCompras.Text = "        Compras";
             this.lblCompras.Visible = false;
+            this.lblCompras.Click += new System.EventHandler(this.lblCompras_Click);
             // 
             // btnInicio
             // 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TiendaVirtual.Logica
 {
-    public interface Interface1
+    public interface IForm
     {
         void Ejecutar(object formHija);
     }

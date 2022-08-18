@@ -81,7 +81,7 @@
   <ItemGroup>
     <Compile Include="Datos\AccesoDatos.cs" />
     <Compile Include="Logica\Cache.cs" />
-    <Compile Include="Logica\Interface1.cs" />
+    <Compile Include="Logica\IForm.cs" />
     <Compile Include="Logica\clsProducto.cs" />
     <Compile Include="Logica\clsUsuario.cs" />
     <Compile Include="Botones\RoundedButton.cs">
@@ -100,6 +100,48 @@
     </Compile>
     <Compile Include="Ventanas\vtnInicio.Designer.cs">
       <DependentUpon>vtnInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\vtnPromocionales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\vtnPromocionales.Designer.cs">
+      <DependentUpon>vtnPromocionales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\vtnCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\vtnCategorias.Designer.cs">
+      <DependentUpon>vtnCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\vtnVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\vtnVentas.Designer.cs">
+      <DependentUpon>vtnVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\vtnInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\vtnInfo.Designer.cs">
+      <DependentUpon>vtnInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\vtnEstadisticas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\vtnEstadisticas.Designer.cs">
+      <DependentUpon>vtnEstadisticas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\vtnFavoritos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\vtnFavoritos.Designer.cs">
+      <DependentUpon>vtnFavoritos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\vtnCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\vtnCompras.Designer.cs">
+      <DependentUpon>vtnCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\vtnProducto.cs">
       <SubType>Form</SubType>
@@ -122,6 +164,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\vtnInicio.resx">
       <DependentUpon>vtnInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\vtnPromocionales.resx">
+      <DependentUpon>vtnPromocionales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\vtnCategorias.resx">
+      <DependentUpon>vtnCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\vtnVentas.resx">
+      <DependentUpon>vtnVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\vtnInfo.resx">
+      <DependentUpon>vtnInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\vtnEstadisticas.resx">
+      <DependentUpon>vtnEstadisticas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\vtnFavoritos.resx">
+      <DependentUpon>vtnFavoritos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\vtnCompras.resx">
+      <DependentUpon>vtnCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\vtnProducto.resx">
       <DependentUpon>vtnProducto.cs</DependentUpon>
@@ -223,6 +286,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\promo4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comprarr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\+.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
