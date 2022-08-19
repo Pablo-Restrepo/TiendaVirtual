@@ -1,5 +1,6 @@
 ﻿using AppGestionConsorcio.datos;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -80,11 +81,40 @@ namespace TiendaVirtual.Logica
         {
             int resultado;
             Random rand = new Random();
-            DataSet dataSet = new DataSet();
             string consulta;
             consulta = "INSERT INTO COMPRA(COM_ID , COM_TOTAL , COM_FECHA , COM_CANTIDAD , PRO_ID , USU_USERNAME) VALUES(" + rand.Next(0, 99999999) + "," + total + ",'" + DateTime.Now.ToString("dd-MM-yyyy") + "'," + cantidad + "," + idProducto + ",'" + Cache.User + "')";
             resultado = dt.ejecutarDML(consulta);
             return resultado;
+        }
+        public void guardarProducto(long idProducto)
+        {
+            string consulta;
+            consulta = "INSERT INTO GUARDA(PRO_ID, USU_USERNAME) VALUES(" + idProducto + ",'" + Cache.User + "')";
+            dt.ejecutarDML(consulta);
+        }
+        public void eliminarGuardarProducto(long idProducto)
+        {
+            string consulta;
+            consulta = "DELETE FROM GUARDA WHERE USU_USERNAME ='" + Cache.User + "' AND PRO_ID =" + idProducto;
+            dt.ejecutarDML(consulta);
+        }
+        public ArrayList consultarGuardados()
+        {
+            ArrayList datos = new ArrayList();
+            DataSet dataSet = new DataSet();
+            string consulta;
+            consulta = "SELECT PRO_ID FROM GUARDA WHERE USU_USERNAME ='" + Cache.User + "'";
+            dataSet = dt.ejecutarSELECT(consulta);
+
+            if (dataSet.Tables[0].Rows.Count > 0)
+            {
+                for (int j = 0; j < dataSet.Tables[0].Rows.Count; j++)
+                {
+                    datos.Add(Int32.Parse(dataSet.Tables[0].Rows[j].ItemArray[0].ToString()));
+                }
+            }
+
+            return datos;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,13 +24,16 @@ namespace TiendaVirtual.Ventanas
         private List<Image> imgList = new List<Image>();
         private int imagen = 1;
         private PictureBox pb;
+        private PictureBox like;
         private List<clsProducto> datosProducto = new List<clsProducto>();
         private clsProducto producto = new clsProducto();
+        private ArrayList guardados = new ArrayList();
         public IForm contrato { get; set; }
         public vtnInicio()
         {
             InitializeComponent();
             datosProductos();
+            prodGuardados();
             generarBloques();
             generarBloques2();
             guardarImagenesPromo();
@@ -78,6 +82,8 @@ namespace TiendaVirtual.Ventanas
             {
                 p = new Panel();
                 pb = new PictureBox();
+                pb = new PictureBox();
+                like = new PictureBox();
                 title = new Label();
                 costo = new Label();
 
@@ -89,6 +95,20 @@ namespace TiendaVirtual.Ventanas
                 p.BackgroundImage = Image.FromStream(ms);
                 p.BackgroundImageLayout = ImageLayout.Stretch;
                 p.Cursor = Cursors.Hand;
+
+                like.TabIndex = i;
+                like.Size = new Size(35, 35);
+                like.Location = new Point(150, 15);
+                if (estaGuardado(datosProducto[i].ProId))
+                {
+                    like.BackgroundImage = Properties.Resources.like;
+                }
+                else
+                {
+                    like.BackgroundImage = Properties.Resources.nolike;
+                }
+                like.BackgroundImageLayout = ImageLayout.Zoom;
+                like.BackColor = Color.Transparent;
 
                 pb.TabIndex = i;
                 pb.Size = new Size(ancho - 40, alto - 110);
@@ -114,15 +134,17 @@ namespace TiendaVirtual.Ventanas
                 title.Location = new Point(15, 185);
                 costo.Location = new Point(15, 210);
 
+                p.Controls.Add(like);
                 p.Controls.Add(pb);
                 p.Controls.Add(title);
                 p.Controls.Add(costo);
-
+                
                 flowLayoutInicio.Controls.Add(p);
                 p.Click += new EventHandler(cliquearPanel);
                 pb.Click += new EventHandler(cliquearPb);
                 title.Click += new EventHandler(cliquearLabel);
                 costo.Click += new EventHandler(cliquearLabel);
+                like.Click += new EventHandler(guardar);
             }
         }
         private void generarBloques2()
@@ -238,6 +260,21 @@ namespace TiendaVirtual.Ventanas
             pb = (PictureBox)sender;
             contrato.Ejecutar(agregarDatosVtnProd(pb.TabIndex));
         }
+        private void guardar(object sender, EventArgs e)
+        {
+            like = new PictureBox();
+            like = (PictureBox)sender;
+            if (estaGuardado(datosProducto[like.TabIndex].ProId))
+            {
+                like.BackgroundImage = Properties.Resources.nolike;
+                producto.eliminarGuardarProducto(datosProducto[like.TabIndex].ProId);
+            }
+            else
+            {
+                producto.guardarProducto(datosProducto[like.TabIndex].ProId);
+                like.BackgroundImage = Properties.Resources.like;
+            }
+        }
         private vtnProducto agregarDatosVtnProd(int TabIndex)
         {
             vtnProducto aux = new vtnProducto();
@@ -247,6 +284,8 @@ namespace TiendaVirtual.Ventanas
             aux.lblDescrip.Text = datosProducto[TabIndex].ProDescripcion.ToString();
             aux.pbImagenProd.BackgroundImage = Image.FromStream(ms);
             aux.idproducto = datosProducto[TabIndex].ProId;
+            aux.total = datosProducto[TabIndex].ProPrecio;
+            aux.aux = datosProducto[TabIndex].ProPrecio;
             return aux;
         }
         private void panelPromo()
@@ -271,6 +310,22 @@ namespace TiendaVirtual.Ventanas
         private void datosProductos()
         {
             datosProducto = producto.consultarProductos();
+        }
+        private void prodGuardados()
+        {
+            guardados = producto.consultarGuardados();
+        }
+        private Boolean estaGuardado(long idproducto)
+        {
+            prodGuardados();
+            for (int i = 0; i < guardados.Count; i++)
+            {
+                if (long.Parse(guardados[i].ToString()) == idproducto)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -22,10 +22,11 @@ namespace TiendaVirtual.Ventanas
         private PictureBox pb;
         private List<clsProducto> datosProducto = new List<clsProducto>();
         private clsProducto producto = new clsProducto();
-        private float total = 0;
         private int cantidad = 1;
         public IForm contrato { get; set; }
         public long idproducto { get; set; }
+        public float total { get; set; }
+        public float aux { get; set; }
         public vtnProducto()
         {
             InitializeComponent();
@@ -141,6 +142,7 @@ namespace TiendaVirtual.Ventanas
             if (cantidad >= 2)
             {
                 cantidad--;
+                total = total - aux;
             }
             lblCantidad.Text = cantidad.ToString();
         }
@@ -148,6 +150,7 @@ namespace TiendaVirtual.Ventanas
         private void pbMas_Click(object sender, EventArgs e)
         {
             cantidad++;
+            total = total + aux;
             lblCantidad.Text = cantidad.ToString();
         }
     }

@@ -203,6 +203,16 @@ namespace TiendaVirtual.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap like {
+            get {
+                object obj = ResourceManager.GetObject("like", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Linea {
             get {
                 object obj = ResourceManager.GetObject("Linea", resourceCulture);
@@ -246,6 +256,16 @@ namespace TiendaVirtual.Properties {
         internal static System.Drawing.Bitmap menuDere {
             get {
                 object obj = ResourceManager.GetObject("menuDere", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nolike {
+            get {
+                object obj = ResourceManager.GetObject("nolike", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

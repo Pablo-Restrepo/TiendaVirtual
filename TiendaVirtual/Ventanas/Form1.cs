@@ -25,7 +25,6 @@ namespace TiendaVirtual
                 contrato = this
             };
             abrirFormHija(aux);
-            Cache.User = "alonso123";
             lblUser.Text = Cache.User;
         }
 
