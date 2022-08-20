@@ -31,6 +31,26 @@ namespace AppGestionConsorcio.datos
             }
             return filasAfectadas;
         }
+        public int ejecutarDMLImagen(string consulta , byte[] imagen)
+        {
+            int filasAfectadas = 0;
+            OracleConnection miConexion = new OracleConnection(cadenaConexion);
+            OracleCommand miComando = new OracleCommand(consulta, miConexion);
+            miComando.Parameters.Add(new OracleParameter(":img", imagen));
+            try
+            {
+                miConexion.Open();
+                filasAfectadas = miComando.ExecuteNonQuery();
+                miConexion.Close();
+                return filasAfectadas;
+            }
+            catch (Exception ex)
+            {
+                miConexion.Close();
+                MessageBox.Show("Ocurrió un error con la base de datos: " + ex.Message);
+            }
+            return filasAfectadas;
+        }
         public DataSet ejecutarSELECT(string consulta)
         {
             DataSet ds = new DataSet();
@@ -38,6 +58,5 @@ namespace AppGestionConsorcio.datos
             miAdaptador.Fill(ds, "ResultadoDatos");
             return ds;
         }
-
     }
 }

@@ -35,47 +35,23 @@ namespace TiendaVirtual.Logica
                 {
                     clsProducto producto = new clsProducto();
                     producto.ProId = Int32.Parse(dataSet.Tables[0].Rows[j].ItemArray[0].ToString());
-                    producto.ProNombre = dataSet.Tables[0].Rows[j].ItemArray[1].ToString();
-                    producto.ProPrecio = float.Parse(dataSet.Tables[0].Rows[j].ItemArray[2].ToString());
-                    producto.ProCategoria = dataSet.Tables[0].Rows[j].ItemArray[3].ToString();
-                    producto.ProDescripcion = dataSet.Tables[0].Rows[j].ItemArray[4].ToString();
-                    if (dataSet.Tables[0].Rows[j].ItemArray[5].ToString().Equals(""))
+                    producto.ProNombre = dataSet.Tables[0].Rows[j].ItemArray[2].ToString();
+                    producto.ProPrecio = float.Parse(dataSet.Tables[0].Rows[j].ItemArray[3].ToString());
+                    producto.ProCategoria = dataSet.Tables[0].Rows[j].ItemArray[4].ToString();
+                    producto.ProDescripcion = dataSet.Tables[0].Rows[j].ItemArray[5].ToString();
+                    if (dataSet.Tables[0].Rows[j].ItemArray[6].ToString().Equals(""))
                     {
                         byte[] imagen = File.ReadAllBytes("..\\..\\Resources\\default.png");
                         producto.prodFoto = imagen;
                     }
                     else
                     {
-                        producto.prodFoto = (byte[])dataSet.Tables[0].Rows[j].ItemArray[5];
+                        producto.prodFoto = (byte[])dataSet.Tables[0].Rows[j].ItemArray[6];
                     }
                     datos.Add(producto);
                 }
             }
             return datos;
-        }
-        public clsProducto consultarProducto(long idProducto)
-        {
-            DataSet dataSet = new DataSet();
-            string consulta;
-            consulta = "SELECT * FROM PRODUCTO WHERE PRO_ID =" + idProducto;
-            dataSet = dt.ejecutarSELECT(consulta);
-
-            clsProducto producto = new clsProducto();
-            producto.ProId = Int32.Parse(dataSet.Tables[0].Rows[0].ItemArray[0].ToString());
-            producto.ProNombre = dataSet.Tables[0].Rows[0].ItemArray[1].ToString();
-            producto.ProPrecio = float.Parse(dataSet.Tables[0].Rows[0].ItemArray[2].ToString());
-            producto.ProCategoria = dataSet.Tables[0].Rows[0].ItemArray[3].ToString();
-            producto.ProDescripcion = dataSet.Tables[0].Rows[0].ItemArray[4].ToString();
-            if (dataSet.Tables[0].Rows[0].ItemArray[5].ToString().Equals(""))
-            {
-                byte[] imagen = File.ReadAllBytes("..\\..\\Resources\\default.png");
-                producto.prodFoto = imagen;
-            }
-            else
-            {
-                producto.prodFoto = (byte[])dataSet.Tables[0].Rows[0].ItemArray[5];
-            }
-            return producto;
         }
         public int comprarProducto(long idProducto, float total, int cantidad)
         {
@@ -115,6 +91,48 @@ namespace TiendaVirtual.Logica
             }
 
             return datos;
+        }
+        public List<clsProducto> consultarProductosGuardados()
+        {
+            List<clsProducto> datos = new List<clsProducto>();
+
+            DataSet dataSet = new DataSet();
+            string consulta;
+            consulta = "SELECT PRODUCTO.* FROM PRODUCTO INNER JOIN GUARDA ON PRODUCTO.PRO_ID = GUARDA.PRO_ID WHERE GUARDA.USU_USERNAME = '" + Cache.User + "'";
+            dataSet = dt.ejecutarSELECT(consulta);
+
+            if (dataSet.Tables[0].Rows.Count > 0)
+            {
+                for (int j = 0; j < dataSet.Tables[0].Rows.Count; j++)
+                {
+                    clsProducto producto = new clsProducto();
+                    producto.ProId = Int32.Parse(dataSet.Tables[0].Rows[j].ItemArray[0].ToString());
+                    producto.ProNombre = dataSet.Tables[0].Rows[j].ItemArray[2].ToString();
+                    producto.ProPrecio = float.Parse(dataSet.Tables[0].Rows[j].ItemArray[3].ToString());
+                    producto.ProCategoria = dataSet.Tables[0].Rows[j].ItemArray[4].ToString();
+                    producto.ProDescripcion = dataSet.Tables[0].Rows[j].ItemArray[5].ToString();
+                    if (dataSet.Tables[0].Rows[j].ItemArray[6].ToString().Equals(""))
+                    {
+                        byte[] imagen = File.ReadAllBytes("..\\..\\Resources\\default.png");
+                        producto.prodFoto = imagen;
+                    }
+                    else
+                    {
+                        producto.prodFoto = (byte[])dataSet.Tables[0].Rows[j].ItemArray[6];
+                    }
+                    datos.Add(producto);
+                }
+            }
+            return datos;
+        }
+        public int crearProducto(string nombre, float precio, string descrip, string categoria, byte[] imagen)
+        {
+            int resultado;
+            Random rand = new Random();
+            string consulta;
+            consulta = "INSERT INTO PRODUCTO (PRO_ID, USU_USERNAME, PRO_NOMBRE, PRO_PRECIO, PRO_DESCRIPCION, PRO_CATEGORIA, PRO_IMAGEN) VALUES (" + rand.Next(0, 99999999) + ",'" + Cache.User + "','" + nombre + "'," + precio + ",'" + descrip + "','" + categoria + "'," + ":img)";
+            resultado = dt.ejecutarDMLImagen(consulta, imagen);
+            return resultado;
         }
     }
 }

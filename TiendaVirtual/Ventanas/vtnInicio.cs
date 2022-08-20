@@ -82,7 +82,6 @@ namespace TiendaVirtual.Ventanas
             {
                 p = new Panel();
                 pb = new PictureBox();
-                pb = new PictureBox();
                 like = new PictureBox();
                 title = new Label();
                 costo = new Label();

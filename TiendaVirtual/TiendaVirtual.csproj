@@ -309,6 +309,24 @@
   <ItemGroup>
     <None Include="Resources\like.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\labelFondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\default1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subirFoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\publicar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marco1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cot.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

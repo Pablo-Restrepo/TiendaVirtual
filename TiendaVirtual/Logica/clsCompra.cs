@@ -25,7 +25,7 @@ namespace TiendaVirtual.Logica
 
             DataSet dataSet = new DataSet();
             string consulta;
-            consulta = "SELECT PRO_IMAGEN, PRO_NOMBRE, COM_FECHA, COM_CANTIDAD , COM_TOTAL FROM COMPRA INNER JOIN PRODUCTO ON COMPRA.PRO_ID =  PRODUCTO.PRO_ID WHERE USU_USERNAME = '" + Cache.User + "' ORDER BY COM_FECHA desc";
+            consulta = "SELECT PRO_IMAGEN, PRO_NOMBRE, COM_FECHA, COM_CANTIDAD , COM_TOTAL FROM COMPRA INNER JOIN PRODUCTO ON COMPRA.PRO_ID =  PRODUCTO.PRO_ID WHERE COMPRA.USU_USERNAME = '" + Cache.User + "' ORDER BY COM_FECHA desc";
             dataSet = dt.ejecutarSELECT(consulta);
 
             if (dataSet.Tables[0].Rows.Count > 0)
