@@ -21,12 +21,14 @@ namespace TiendaVirtual.Ventanas
         private Panel p = new Panel();
         private Label costo = new Label();
         private MemoryStream ms = new MemoryStream();
+        private List<clsPromocional> datosPromocionales = new List<clsPromocional>();
         private List<Image> imgList = new List<Image>();
-        private int imagen = 1;
+        private int imagen = -1;
         private PictureBox pb;
         private PictureBox like;
         private List<clsProducto> datosProducto = new List<clsProducto>();
         private clsProducto producto = new clsProducto();
+        private clsPromocional promocional = new clsPromocional();
         private ArrayList guardados = new ArrayList();
         public IForm contrato { get; set; }
         public vtnInicio()
@@ -289,22 +291,24 @@ namespace TiendaVirtual.Ventanas
         }
         private void panelPromo()
         {
-            pbPromo.BackgroundImage = imgList[0];
             var timer = new System.Timers.Timer(TimeSpan.FromMinutes(3000).TotalMinutes);
             timer.Elapsed += (sender, e) =>
             {
-                pbPromo.BackgroundImage = imgList[imagen];
+                
                 imagen++;
                 if (imagen == imgList.Count) imagen = 0;
+                pbPromo.BackgroundImage = imgList[imagen];
             };
             timer.Start();
         }
         private void guardarImagenesPromo()
         {
-            imgList.Add(Properties.Resources.promo);
-            imgList.Add(Properties.Resources.promo2);
-            imgList.Add(Properties.Resources.promo3);
-            imgList.Add(Properties.Resources.promo4);
+            datosPromocionales = promocional.consultarPromocionales();
+            for (int i = 0; i < datosPromocionales.Count; i++)
+            {
+                ms = new MemoryStream(datosPromocionales[i].PromFoto);
+                imgList.Add(Image.FromStream(ms));
+            }
         }
         private void datosProductos()
         {

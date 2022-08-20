@@ -82,6 +82,7 @@
     <Compile Include="Datos\AccesoDatos.cs" />
     <Compile Include="Logica\Cache.cs" />
     <Compile Include="Logica\clsCompra.cs" />
+    <Compile Include="Logica\clsPromocional.cs" />
     <Compile Include="Logica\IForm.cs" />
     <Compile Include="Logica\clsProducto.cs" />
     <Compile Include="Logica\clsUsuario.cs" />
