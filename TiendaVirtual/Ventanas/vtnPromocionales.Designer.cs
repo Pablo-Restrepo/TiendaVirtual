@@ -35,6 +35,7 @@
             this.pbFoto = new System.Windows.Forms.PictureBox();
             this.pbPublicar = new System.Windows.Forms.PictureBox();
             this.lnlInfo2 = new System.Windows.Forms.Label();
+            this.flowLayoutProm = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pbFondo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSubirFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
@@ -83,7 +84,7 @@
             this.pbSubirFoto.BackgroundImage = global::TiendaVirtual.Properties.Resources.subirFoto;
             this.pbSubirFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbSubirFoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbSubirFoto.Location = new System.Drawing.Point(303, 132);
+            this.pbSubirFoto.Location = new System.Drawing.Point(304, 132);
             this.pbSubirFoto.Name = "pbSubirFoto";
             this.pbSubirFoto.Size = new System.Drawing.Size(116, 32);
             this.pbSubirFoto.TabIndex = 32;
@@ -107,7 +108,7 @@
             this.pbPublicar.BackgroundImage = global::TiendaVirtual.Properties.Resources.publicar;
             this.pbPublicar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbPublicar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbPublicar.Location = new System.Drawing.Point(303, 352);
+            this.pbPublicar.Location = new System.Drawing.Point(304, 352);
             this.pbPublicar.Name = "pbPublicar";
             this.pbPublicar.Size = new System.Drawing.Size(138, 40);
             this.pbPublicar.TabIndex = 33;
@@ -125,12 +126,26 @@
             this.lnlInfo2.TabIndex = 34;
             this.lnlInfo2.Text = "Tus Promocionales Publicados:";
             // 
+            // flowLayoutProm
+            // 
+            this.flowLayoutProm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutProm.AutoSize = true;
+            this.flowLayoutProm.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutProm.Location = new System.Drawing.Point(22, 458);
+            this.flowLayoutProm.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutProm.Name = "flowLayoutProm";
+            this.flowLayoutProm.Size = new System.Drawing.Size(890, 142);
+            this.flowLayoutProm.TabIndex = 35;
+            // 
             // vtnPromocionales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(42)))));
             this.ClientSize = new System.Drawing.Size(921, 600);
+            this.Controls.Add(this.flowLayoutProm);
             this.Controls.Add(this.lnlInfo2);
             this.Controls.Add(this.pbPublicar);
             this.Controls.Add(this.pbSubirFoto);
@@ -160,5 +175,6 @@
         private System.Windows.Forms.PictureBox pbFoto;
         private System.Windows.Forms.PictureBox pbPublicar;
         private System.Windows.Forms.Label lnlInfo2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutProm;
     }
 }

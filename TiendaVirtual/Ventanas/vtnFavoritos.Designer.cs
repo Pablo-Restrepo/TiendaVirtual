@@ -29,19 +29,29 @@
         private void InitializeComponent()
         {
             this.flowLayoutGuardados = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // flowLayoutGuardados
             // 
-            this.flowLayoutGuardados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutGuardados.AutoSize = true;
             this.flowLayoutGuardados.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutGuardados.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutGuardados.Location = new System.Drawing.Point(20, 56);
             this.flowLayoutGuardados.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutGuardados.Name = "flowLayoutGuardados";
-            this.flowLayoutGuardados.Size = new System.Drawing.Size(921, 600);
+            this.flowLayoutGuardados.Size = new System.Drawing.Size(901, 535);
             this.flowLayoutGuardados.TabIndex = 21;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Montserrat ExtraBold", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.ForeColor = System.Drawing.Color.White;
+            this.lblInfo.Location = new System.Drawing.Point(12, 9);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(187, 47);
+            this.lblInfo.TabIndex = 22;
+            this.lblInfo.Text = "Favoritos";
             // 
             // vtnFavoritos
             // 
@@ -50,6 +60,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(42)))));
             this.ClientSize = new System.Drawing.Size(921, 600);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.flowLayoutGuardados);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(921, 600);
@@ -63,5 +74,6 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutGuardados;
+        private System.Windows.Forms.Label lblInfo;
     }
 }

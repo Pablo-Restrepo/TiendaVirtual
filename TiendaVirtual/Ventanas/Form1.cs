@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +18,19 @@ namespace TiendaVirtual
     {
         private Boolean bandera = true;
         private Boolean bandera2 = true;
+        private MemoryStream ms = new MemoryStream();
         private Form fH;
+        private Panel p = new Panel();
+        private Label title = new Label();
+        private Label costo = new Label();
+        private PictureBox pb;
+        private PictureBox like;
+        private clsNotificacion notificacion = new clsNotificacion();
+        private List<clsNotificacion> datosNotificacion = new List<clsNotificacion>();
+        private clsProducto producto = new clsProducto();
+        private List<clsProducto> datosProducto = new List<clsProducto>();
+        private ArrayList guardados = new ArrayList();
+        public IForm contrato { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +39,18 @@ namespace TiendaVirtual
                 contrato = this
             };
             abrirFormHija(aux);
+            infoUser();
+            generarNotifi();
+        }
+
+        private void infoUser()
+        {
             lblUser.Text = Cache.User;
+            if (Cache.PerFoto != null)
+            {
+                ms = new MemoryStream(Cache.PerFoto);
+                pbPerfil.BackgroundImage = Image.FromStream(ms);
+            }
         }
 
         private void txtBuscar_Click(object sender, EventArgs e)
@@ -116,6 +141,7 @@ namespace TiendaVirtual
             if (this.panelCentral.Controls.Count > 0)
             {
                 this.panelCentral.Controls.Clear();
+                this.panelCentral.Controls.Add(flowLayoutNotifi);
             }
             if (fH != null)
             {
@@ -173,32 +199,56 @@ namespace TiendaVirtual
 
         private void btnFavoritos_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new vtnFavoritos());
+            vtnFavoritos aux = new vtnFavoritos
+            {
+                contrato = this
+            };
+            abrirFormHija(aux);
         }
 
         private void lblFavoritos_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new vtnFavoritos());
+            vtnFavoritos aux = new vtnFavoritos
+            {
+                contrato = this
+            };
+            abrirFormHija(aux);
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new vtnCategorias());
+            vtnCategorias aux = new vtnCategorias
+            {
+                contrato = this
+            };
+            abrirFormHija(aux);
         }
 
         private void lblCategorias_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new vtnCategorias());
+            vtnCategorias aux = new vtnCategorias
+            {
+                contrato = this
+            };
+            abrirFormHija(aux);
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new vtnVentas());
+            vtnVentas aux = new vtnVentas
+            {
+                contrato = this
+            };
+            abrirFormHija(aux);
         }
 
         private void lblVentas_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new vtnVentas());
+            vtnVentas aux = new vtnVentas
+            {
+                contrato = this
+            };
+            abrirFormHija(aux);
         }
 
         private void btnEstadisticas_Click(object sender, EventArgs e)
@@ -229,6 +279,239 @@ namespace TiendaVirtual
         private void lblInformacion_Click(object sender, EventArgs e)
         {
             abrirFormHija(new vtnInfo());
+        }
+
+        private void pbPerfil_Click(object sender, EventArgs e)
+        {
+            vtnPerfil aux = new vtnPerfil
+            {
+                contrato = this
+            };
+            abrirFormHija(aux);
+        }
+
+        public void actualizar()
+        {
+            infoUser();
+        }
+
+        private void pbNotifi_Click(object sender, EventArgs e)
+        {
+            if (flowLayoutNotifi.Visible == false)
+            {
+                flowLayoutNotifi.Visible = true;
+                notificacion.notiVista();
+                pbNotifi.BackgroundImage = Properties.Resources.notifi;
+            }
+            else
+            {
+                flowLayoutNotifi.Visible = false;
+            }
+        }
+        private void generarNotifi()
+        {
+            int ancho, alto;
+            ancho = (flowLayoutNotifi.Width - 18);
+            alto = (80);
+            int cant = 0;
+            datosNotificacion = notificacion.crearNoti();
+            for (int i = 0; i < datosNotificacion.Count; i++)
+            {
+                p = new Panel();
+                title = new Label();
+                costo = new Label();
+
+                cant++;
+
+                p.TabIndex = i;
+                p.Margin = new Padding(0, 0, 0, 22);
+                p.Size = new Size(ancho, alto);
+
+                p.BackgroundImage = Properties.Resources.conten;
+                p.BackgroundImageLayout = ImageLayout.Stretch;
+
+                title.Text = datosNotificacion[i].NotiNombre;
+                title.Font = new System.Drawing.Font("Montserrat SemiBold", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                title.ForeColor = Color.White;
+                title.TabIndex = i;
+
+                costo.Text = datosNotificacion[i].NotiDescripcion;
+                costo.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                costo.TabIndex = i;
+                costo.ForeColor = Color.White;
+                costo.AutoSize = false;
+                costo.Size = new Size(flowLayoutNotifi.Width - 36, 40);
+
+                title.Location = new Point(8, 5);
+                costo.Location = new Point(8, 30);
+
+                p.Controls.Add(title);
+                p.Controls.Add(costo);
+
+                flowLayoutNotifi.Controls.Add(p);
+                if (datosNotificacion[i].NotiVista == 0)
+                {
+                    pbNotifi.BackgroundImage = Properties.Resources.notifiActi;
+                }
+                else
+                {
+                    pbNotifi.BackgroundImage = Properties.Resources.notifi;
+                }
+            }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            datosProducto = producto.buscarProducto(txtBuscar.Text);
+            panelCentral.Controls.Clear();
+            flowLayoutPanel1.Controls.Clear();
+            panelCentral.Controls.Add(flowLayoutPanel1);
+            generarBloques();
+        }
+        private void generarBloques()
+        {
+            int ancho, alto;
+            ancho = (197);
+            alto = (260);
+
+            for (int i = 0; i < datosProducto.Count; i++)
+            {
+                p = new Panel();
+                pb = new PictureBox();
+                like = new PictureBox();
+                title = new Label();
+                costo = new Label();
+
+                p.TabIndex = i;
+                p.Margin = new Padding(0, 25, 25, 0);
+                p.Size = new Size(ancho, alto);
+                byte[] imagen = File.ReadAllBytes("..\\..\\Resources\\marco.png");
+                ms = new MemoryStream(imagen);
+                p.BackgroundImage = Image.FromStream(ms);
+                p.BackgroundImageLayout = ImageLayout.Stretch;
+                p.Cursor = Cursors.Hand;
+
+                like.TabIndex = i;
+                like.Size = new Size(35, 35);
+                like.Location = new Point(150, 15);
+                if (estaGuardado(datosProducto[i].ProId))
+                {
+                    like.BackgroundImage = Properties.Resources.like;
+                }
+                else
+                {
+                    like.BackgroundImage = Properties.Resources.nolike;
+                }
+                like.BackgroundImageLayout = ImageLayout.Zoom;
+                like.BackColor = Color.Transparent;
+
+                pb.TabIndex = i;
+                pb.Size = new Size(ancho - 40, alto - 110);
+                pb.Location = new Point(20, 20);
+                ms = new MemoryStream(datosProducto[i].prodFoto);
+                pb.BackgroundImage = Image.FromStream(ms);
+                pb.BackgroundImageLayout = ImageLayout.Zoom;
+                pb.BackColor = Color.White;
+                pb.Cursor = Cursors.Hand;
+
+                title.Text = datosProducto[i].ProNombre.ToString();
+                title.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                title.ForeColor = Color.White;
+                title.TabIndex = i;
+                title.Cursor = Cursors.Hand;
+
+                costo.Text = "$" + datosProducto[i].ProPrecio.ToString();
+                costo.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                costo.TabIndex = i;
+                costo.ForeColor = Color.White;
+                costo.Cursor = Cursors.Hand;
+
+                title.Location = new Point(15, 185);
+                costo.Location = new Point(15, 210);
+
+                p.Controls.Add(like);
+                p.Controls.Add(pb);
+                p.Controls.Add(title);
+                p.Controls.Add(costo);
+
+                flowLayoutPanel1.Controls.Add(p);
+                p.Click += new EventHandler(cliquearPanel);
+                pb.Click += new EventHandler(cliquearPb);
+                title.Click += new EventHandler(cliquearLabel);
+                costo.Click += new EventHandler(cliquearLabel);
+                like.Click += new EventHandler(guardar);
+            }
+        }
+        private void cliquearPanel(object sender, EventArgs e)
+        {
+            p = new Panel();
+            p = (Panel)sender;
+            contrato.Ejecutar(agregarDatosVtnProd(p.TabIndex));
+        }
+        private void cliquearLabel(object sender, EventArgs e)
+        {
+            title = new Label();
+            title = (Label)sender;
+            contrato.Ejecutar(agregarDatosVtnProd(title.TabIndex));
+        }
+        private void cliquearPb(object sender, EventArgs e)
+        {
+            pb = new PictureBox();
+            pb = (PictureBox)sender;
+            contrato.Ejecutar(agregarDatosVtnProd(pb.TabIndex));
+        }
+        private vtnProducto agregarDatosVtnProd(int TabIndex)
+        {
+            vtnProducto aux = new vtnProducto();
+            ms = new MemoryStream(datosProducto[TabIndex].prodFoto);
+            aux.lblNombreProd.Text = datosProducto[TabIndex].ProNombre.ToString();
+            aux.lblPrecio.Text = "Precio:  $" + datosProducto[TabIndex].ProPrecio.ToString();
+            aux.lblDescrip.Text = datosProducto[TabIndex].ProDescripcion.ToString();
+            aux.pbImagenProd.BackgroundImage = Image.FromStream(ms);
+            aux.idproducto = datosProducto[TabIndex].ProId;
+            aux.total = datosProducto[TabIndex].ProPrecio;
+            aux.aux = datosProducto[TabIndex].ProPrecio;
+            return aux;
+        }
+        private void guardar(object sender, EventArgs e)
+        {
+            like = new PictureBox();
+            like = (PictureBox)sender;
+            if (estaGuardado(datosProducto[like.TabIndex].ProId))
+            {
+                like.BackgroundImage = Properties.Resources.nolike;
+                producto.eliminarGuardarProducto(datosProducto[like.TabIndex].ProId);
+            }
+            else
+            {
+                producto.guardarProducto(datosProducto[like.TabIndex].ProId);
+                like.BackgroundImage = Properties.Resources.like;
+            }
+        }
+        private void prodGuardados()
+        {
+            guardados = producto.consultarGuardados();
+        }
+        private Boolean estaGuardado(long idproducto)
+        {
+            prodGuardados();
+            for (int i = 0; i < guardados.Count; i++)
+            {
+                if (long.Parse(guardados[i].ToString()) == idproducto)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void lblUser_Click(object sender, EventArgs e)
+        {
+            vtnPerfil aux = new vtnPerfil
+            {
+                contrato = this
+            };
+            abrirFormHija(aux);
         }
     }
 }

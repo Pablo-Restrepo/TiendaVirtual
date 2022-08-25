@@ -39,8 +39,8 @@ namespace TiendaVirtual.Ventanas
         private void generarBloques()
         {
             int ancho, alto;
-            ancho = (flowLayoutGuardados.Width / 4);
-            alto = (flowLayoutGuardados.Height / 2);
+            ancho = (197);
+            alto = (260);
 
             for (int i = 0; i < datosProducto.Count; i++)
             {
@@ -94,8 +94,8 @@ namespace TiendaVirtual.Ventanas
                 costo.ForeColor = Color.White;
                 costo.Cursor = Cursors.Hand;
 
-                title.Location = new Point(15, 210);
-                costo.Location = new Point(15, 230);
+                title.Location = new Point(15, 185);
+                costo.Location = new Point(15, 210);
 
                 p.Controls.Add(like);
                 p.Controls.Add(pb);

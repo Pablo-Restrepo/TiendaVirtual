@@ -117,15 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Tienda Virtual
-
-El programa puede gestionar, agrupar, crear, guardar, eliminar productos, 
-comprar, crear promocionales, crear cuentas y crear estadisticas del vendedor.
-
-NuGet necesario para funcionar: Oracle.ManagedDataAccess. 
-Scripts incluidos para la creacion de la base de datos en SQL Server.
-
-Para el cambio de la conexxion dirigirse a Datos/AccesoDatos/cadenaConexion.</value>
-  </data>
 </root>

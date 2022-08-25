@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panelTop = new System.Windows.Forms.Panel();
-            this.pbProDesc = new System.Windows.Forms.FlowLayoutPanel();
+            this.pbProMasGuar = new System.Windows.Forms.FlowLayoutPanel();
             this.pbVendedores = new System.Windows.Forms.FlowLayoutPanel();
             this.pbProdMasComp = new System.Windows.Forms.FlowLayoutPanel();
             this.panelBottom = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTodo = new System.Windows.Forms.Button();
+            this.btnDeporte = new System.Windows.Forms.Button();
+            this.btnTecnologia = new System.Windows.Forms.Button();
+            this.btnHogar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutInicio = new System.Windows.Forms.FlowLayoutPanel();
             this.pbPromo = new TiendaVirtual.Styles.RoundedButton();
@@ -47,7 +47,7 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.Transparent;
-            this.panelTop.Controls.Add(this.pbProDesc);
+            this.panelTop.Controls.Add(this.pbProMasGuar);
             this.panelTop.Controls.Add(this.pbVendedores);
             this.panelTop.Controls.Add(this.pbProdMasComp);
             this.panelTop.Controls.Add(this.pbPromo);
@@ -57,16 +57,16 @@
             this.panelTop.Size = new System.Drawing.Size(921, 237);
             this.panelTop.TabIndex = 2;
             // 
-            // pbProDesc
+            // pbProMasGuar
             // 
-            this.pbProDesc.BackColor = System.Drawing.Color.Transparent;
-            this.pbProDesc.BackgroundImage = global::TiendaVirtual.Properties.Resources.proddescuent;
-            this.pbProDesc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbProDesc.Location = new System.Drawing.Point(1253, 12);
-            this.pbProDesc.Name = "pbProDesc";
-            this.pbProDesc.Size = new System.Drawing.Size(321, 211);
-            this.pbProDesc.TabIndex = 18;
-            this.pbProDesc.Visible = false;
+            this.pbProMasGuar.BackColor = System.Drawing.Color.Transparent;
+            this.pbProMasGuar.BackgroundImage = global::TiendaVirtual.Properties.Resources.masCompra;
+            this.pbProMasGuar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbProMasGuar.Location = new System.Drawing.Point(1253, 12);
+            this.pbProMasGuar.Name = "pbProMasGuar";
+            this.pbProMasGuar.Size = new System.Drawing.Size(321, 211);
+            this.pbProMasGuar.TabIndex = 18;
+            this.pbProMasGuar.Visible = false;
             // 
             // pbVendedores
             // 
@@ -93,10 +93,10 @@
             this.panelBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelBottom.BackColor = System.Drawing.Color.Transparent;
-            this.panelBottom.Controls.Add(this.button4);
-            this.panelBottom.Controls.Add(this.button3);
-            this.panelBottom.Controls.Add(this.button2);
-            this.panelBottom.Controls.Add(this.button1);
+            this.panelBottom.Controls.Add(this.btnTodo);
+            this.panelBottom.Controls.Add(this.btnDeporte);
+            this.panelBottom.Controls.Add(this.btnTecnologia);
+            this.panelBottom.Controls.Add(this.btnHogar);
             this.panelBottom.Controls.Add(this.label2);
             this.panelBottom.Controls.Add(this.flowLayoutInicio);
             this.panelBottom.Location = new System.Drawing.Point(0, 241);
@@ -104,86 +104,90 @@
             this.panelBottom.Size = new System.Drawing.Size(921, 359);
             this.panelBottom.TabIndex = 3;
             // 
-            // button4
+            // btnTodo
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackgroundImage = global::TiendaVirtual.Properties.Resources.conten;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Transparent;
-            this.button4.Location = new System.Drawing.Point(777, 54);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(112, 35);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "Todo";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnTodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTodo.BackgroundImage = global::TiendaVirtual.Properties.Resources.conten2;
+            this.btnTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTodo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTodo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnTodo.FlatAppearance.BorderSize = 0;
+            this.btnTodo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnTodo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnTodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTodo.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTodo.ForeColor = System.Drawing.Color.Transparent;
+            this.btnTodo.Location = new System.Drawing.Point(777, 54);
+            this.btnTodo.Margin = new System.Windows.Forms.Padding(0);
+            this.btnTodo.Name = "btnTodo";
+            this.btnTodo.Size = new System.Drawing.Size(112, 35);
+            this.btnTodo.TabIndex = 16;
+            this.btnTodo.Text = "Todo";
+            this.btnTodo.UseVisualStyleBackColor = true;
+            this.btnTodo.Click += new System.EventHandler(this.btnTodo_Click);
             // 
-            // button3
+            // btnDeporte
             // 
-            this.button3.BackgroundImage = global::TiendaVirtual.Properties.Resources.conten;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Transparent;
-            this.button3.Location = new System.Drawing.Point(272, 54);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 35);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Deporte";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDeporte.BackgroundImage = global::TiendaVirtual.Properties.Resources.conten;
+            this.btnDeporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDeporte.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeporte.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDeporte.FlatAppearance.BorderSize = 0;
+            this.btnDeporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDeporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDeporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeporte.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeporte.ForeColor = System.Drawing.Color.Transparent;
+            this.btnDeporte.Location = new System.Drawing.Point(272, 54);
+            this.btnDeporte.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDeporte.Name = "btnDeporte";
+            this.btnDeporte.Size = new System.Drawing.Size(112, 35);
+            this.btnDeporte.TabIndex = 15;
+            this.btnDeporte.Text = "Deporte";
+            this.btnDeporte.UseVisualStyleBackColor = true;
+            this.btnDeporte.Click += new System.EventHandler(this.btnDeporte_Click);
             // 
-            // button2
+            // btnTecnologia
             // 
-            this.button2.BackgroundImage = global::TiendaVirtual.Properties.Resources.conten;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(144, 54);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 35);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Tecnologia";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTecnologia.BackgroundImage = global::TiendaVirtual.Properties.Resources.conten;
+            this.btnTecnologia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTecnologia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTecnologia.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnTecnologia.FlatAppearance.BorderSize = 0;
+            this.btnTecnologia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnTecnologia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnTecnologia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTecnologia.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTecnologia.ForeColor = System.Drawing.Color.Transparent;
+            this.btnTecnologia.Location = new System.Drawing.Point(144, 54);
+            this.btnTecnologia.Margin = new System.Windows.Forms.Padding(0);
+            this.btnTecnologia.Name = "btnTecnologia";
+            this.btnTecnologia.Size = new System.Drawing.Size(112, 35);
+            this.btnTecnologia.TabIndex = 14;
+            this.btnTecnologia.Text = "Tecnologia";
+            this.btnTecnologia.UseVisualStyleBackColor = true;
+            this.btnTecnologia.Click += new System.EventHandler(this.btnTecnologia_Click);
             // 
-            // button1
+            // btnHogar
             // 
-            this.button1.BackgroundImage = global::TiendaVirtual.Properties.Resources.conten2;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(12, 54);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 35);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Hogar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnHogar.BackgroundImage = global::TiendaVirtual.Properties.Resources.conten;
+            this.btnHogar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHogar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHogar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnHogar.FlatAppearance.BorderSize = 0;
+            this.btnHogar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHogar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHogar.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHogar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnHogar.Location = new System.Drawing.Point(12, 54);
+            this.btnHogar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnHogar.Name = "btnHogar";
+            this.btnHogar.Size = new System.Drawing.Size(112, 35);
+            this.btnHogar.TabIndex = 13;
+            this.btnHogar.Text = "Hogar";
+            this.btnHogar.UseVisualStyleBackColor = true;
+            this.btnHogar.Click += new System.EventHandler(this.btnHogar_Click);
             // 
             // label2
             // 
@@ -248,14 +252,14 @@
         private Styles.RoundedButton pbPromo;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panelBottom;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHogar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnTecnologia;
+        private System.Windows.Forms.Button btnTodo;
+        private System.Windows.Forms.Button btnDeporte;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutInicio;
         private System.Windows.Forms.FlowLayoutPanel pbProdMasComp;
         private System.Windows.Forms.FlowLayoutPanel pbVendedores;
-        private System.Windows.Forms.FlowLayoutPanel pbProDesc;
+        private System.Windows.Forms.FlowLayoutPanel pbProMasGuar;
     }
 }

@@ -54,5 +54,34 @@ namespace TiendaVirtual.Logica
             }
             return datos;
         }
+        public List<clsPromocional> tusPromocionales()
+        {
+            List<clsPromocional> datos = new List<clsPromocional>();
+
+            DataSet dataSet = new DataSet();
+            string consulta;
+            consulta = "SELECT PROM_IMAGEN FROM PROMOCIONAL WHERE USU_USERNAME ='" + Cache.User +"'";
+            dt.ejecutarSELECT(consulta);
+            dataSet = dt.ejecutarSELECT(consulta);
+
+            if (dataSet.Tables[0].Rows.Count > 0)
+            {
+                for (int j = 0; j < dataSet.Tables[0].Rows.Count; j++)
+                {
+                    clsPromocional promocional = new clsPromocional();
+                    if (dataSet.Tables[0].Rows[j].ItemArray[0].ToString().Equals(""))
+                    {
+                        byte[] imagen = File.ReadAllBytes("..\\..\\Resources\\default.png");
+                        promocional.PromFoto = imagen;
+                    }
+                    else
+                    {
+                        promocional.PromFoto = (byte[])dataSet.Tables[0].Rows[j].ItemArray[0];
+                    }
+                    datos.Add(promocional);
+                }
+            }
+            return datos;
+        }
     }
 }

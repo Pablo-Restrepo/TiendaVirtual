@@ -35,6 +35,7 @@
             this.txtDescrip = new System.Windows.Forms.TextBox();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.flowLayoutPro = new System.Windows.Forms.FlowLayoutPanel();
             this.pbSubirFoto = new System.Windows.Forms.PictureBox();
             this.pbPublicar = new System.Windows.Forms.PictureBox();
             this.pbFoto = new System.Windows.Forms.PictureBox();
@@ -56,7 +57,7 @@
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Montserrat ExtraBold", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.ForeColor = System.Drawing.Color.White;
-            this.lblInfo.Location = new System.Drawing.Point(24, 22);
+            this.lblInfo.Location = new System.Drawing.Point(12, 9);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(386, 47);
             this.lblInfo.TabIndex = 6;
@@ -67,7 +68,7 @@
             this.lnlInfo2.AutoSize = true;
             this.lnlInfo2.Font = new System.Drawing.Font("Montserrat ExtraBold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnlInfo2.ForeColor = System.Drawing.Color.White;
-            this.lnlInfo2.Location = new System.Drawing.Point(25, 497);
+            this.lnlInfo2.Location = new System.Drawing.Point(11, 486);
             this.lnlInfo2.Name = "lnlInfo2";
             this.lnlInfo2.Size = new System.Drawing.Size(399, 37);
             this.lnlInfo2.TabIndex = 7;
@@ -79,8 +80,9 @@
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNombre.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.ForeColor = System.Drawing.Color.White;
-            this.txtNombre.Location = new System.Drawing.Point(49, 106);
+            this.txtNombre.Location = new System.Drawing.Point(35, 82);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(0);
+            this.txtNombre.MaxLength = 100;
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(365, 23);
@@ -95,8 +97,9 @@
             this.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrecio.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.ForeColor = System.Drawing.Color.White;
-            this.txtPrecio.Location = new System.Drawing.Point(49, 158);
+            this.txtPrecio.Location = new System.Drawing.Point(35, 134);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(0);
+            this.txtPrecio.MaxLength = 7;
             this.txtPrecio.Multiline = true;
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(365, 23);
@@ -111,14 +114,14 @@
             this.txtDescrip.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescrip.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescrip.ForeColor = System.Drawing.Color.White;
-            this.txtDescrip.Location = new System.Drawing.Point(49, 258);
+            this.txtDescrip.Location = new System.Drawing.Point(35, 234);
             this.txtDescrip.Margin = new System.Windows.Forms.Padding(0);
-            this.txtDescrip.MaxLength = 100;
+            this.txtDescrip.MaxLength = 500;
             this.txtDescrip.Multiline = true;
             this.txtDescrip.Name = "txtDescrip";
             this.txtDescrip.Size = new System.Drawing.Size(365, 169);
             this.txtDescrip.TabIndex = 27;
-            this.txtDescrip.Text = "Descripcion (Max. 100)";
+            this.txtDescrip.Text = "Descripcion (Max. 500)";
             this.txtDescrip.Click += new System.EventHandler(this.txtDescrip_Click);
             this.txtDescrip.Leave += new System.EventHandler(this.txtDescrip_Leave);
             // 
@@ -131,10 +134,30 @@
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Items.AddRange(new object[] {
             "Tecnologia",
-            "Hogar",
             "Deporte",
+            "Eventos",
+            "Ropa",
+            "Muebles",
+            "Maletas",
+            "Herramientas",
+            "Joyeria y Accesorios",
+            "Relojes",
+            "Bienes Virtuales",
+            "Hogar y Jardin",
+            "Oficina y Escuela",
+            "Juguetes",
+            "Seguridad",
+            "Vehiculos",
+            "Comida",
+            "Electrodomesticos",
+            "Ordenadores",
+            "Luces e Iluminacion",
+            "Belleza",
+            "Telefonos",
+            "Componentes Electronicos",
+            "Calzado",
             "Otro"});
-            this.cmbCategoria.Location = new System.Drawing.Point(160, 205);
+            this.cmbCategoria.Location = new System.Drawing.Point(146, 181);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(251, 30);
             this.cmbCategoria.TabIndex = 31;
@@ -145,18 +168,30 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(32)))), ((int)(((byte)(63)))));
             this.label1.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(45, 208);
+            this.label1.Location = new System.Drawing.Point(31, 184);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 22);
             this.label1.TabIndex = 32;
             this.label1.Text = "Categoria";
+            // 
+            // flowLayoutPro
+            // 
+            this.flowLayoutPro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPro.AutoSize = true;
+            this.flowLayoutPro.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPro.Location = new System.Drawing.Point(18, 538);
+            this.flowLayoutPro.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPro.Name = "flowLayoutPro";
+            this.flowLayoutPro.Size = new System.Drawing.Size(909, 42);
+            this.flowLayoutPro.TabIndex = 36;
             // 
             // pbSubirFoto
             // 
             this.pbSubirFoto.BackgroundImage = global::TiendaVirtual.Properties.Resources.subirFoto;
             this.pbSubirFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbSubirFoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbSubirFoto.Location = new System.Drawing.Point(711, 373);
+            this.pbSubirFoto.Location = new System.Drawing.Point(697, 349);
             this.pbSubirFoto.Name = "pbSubirFoto";
             this.pbSubirFoto.Size = new System.Drawing.Size(116, 32);
             this.pbSubirFoto.TabIndex = 30;
@@ -168,7 +203,7 @@
             this.pbPublicar.BackgroundImage = global::TiendaVirtual.Properties.Resources.publicar;
             this.pbPublicar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbPublicar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbPublicar.Location = new System.Drawing.Point(32, 454);
+            this.pbPublicar.Location = new System.Drawing.Point(18, 433);
             this.pbPublicar.Name = "pbPublicar";
             this.pbPublicar.Size = new System.Drawing.Size(138, 40);
             this.pbPublicar.TabIndex = 29;
@@ -180,7 +215,7 @@
             this.pbFoto.BackColor = System.Drawing.Color.Black;
             this.pbFoto.BackgroundImage = global::TiendaVirtual.Properties.Resources._default;
             this.pbFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbFoto.Location = new System.Drawing.Point(567, 98);
+            this.pbFoto.Location = new System.Drawing.Point(553, 74);
             this.pbFoto.Name = "pbFoto";
             this.pbFoto.Size = new System.Drawing.Size(260, 260);
             this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -191,7 +226,7 @@
             // 
             this.pictureBox3.BackgroundImage = global::TiendaVirtual.Properties.Resources.cot;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(32, 248);
+            this.pictureBox3.Location = new System.Drawing.Point(18, 224);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(397, 189);
             this.pictureBox3.TabIndex = 26;
@@ -201,7 +236,7 @@
             // 
             this.pictureBox2.BackgroundImage = global::TiendaVirtual.Properties.Resources.labelFondo;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(32, 200);
+            this.pictureBox2.Location = new System.Drawing.Point(18, 176);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(397, 40);
             this.pictureBox2.TabIndex = 24;
@@ -211,7 +246,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::TiendaVirtual.Properties.Resources.labelFondo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(32, 150);
+            this.pictureBox1.Location = new System.Drawing.Point(18, 126);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(397, 40);
             this.pictureBox1.TabIndex = 22;
@@ -221,7 +256,7 @@
             // 
             this.pbFondo.BackgroundImage = global::TiendaVirtual.Properties.Resources.labelFondo;
             this.pbFondo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbFondo.Location = new System.Drawing.Point(32, 98);
+            this.pbFondo.Location = new System.Drawing.Point(18, 74);
             this.pbFondo.Name = "pbFondo";
             this.pbFondo.Size = new System.Drawing.Size(397, 40);
             this.pbFondo.TabIndex = 8;
@@ -231,8 +266,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(42)))));
             this.ClientSize = new System.Drawing.Size(921, 600);
+            this.Controls.Add(this.flowLayoutPro);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.pbSubirFoto);
@@ -279,5 +316,6 @@
         private System.Windows.Forms.PictureBox pbSubirFoto;
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPro;
     }
 }

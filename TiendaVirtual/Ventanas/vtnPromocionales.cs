@@ -15,10 +15,14 @@ namespace TiendaVirtual.Ventanas
     public partial class vtnPromocionales : Form
     {
         private string FotoLocation;
+        private MemoryStream ms = new MemoryStream();
+        private Panel p = new Panel();
         private clsPromocional promocional = new clsPromocional();
+        private List<clsPromocional> promocionales = new List<clsPromocional>();
         public vtnPromocionales()
         {
             InitializeComponent();
+            misPromocionales();
         }
 
         private void txtNombre_Click(object sender, EventArgs e)
@@ -56,6 +60,7 @@ namespace TiendaVirtual.Ventanas
 
         private void pbPublicar_Click(object sender, EventArgs e)
         {
+            int resultado = 0;
             byte[] MaqFoto = null;
             if (FotoLocation != null)
             {
@@ -64,10 +69,17 @@ namespace TiendaVirtual.Ventanas
                 MaqFoto = new byte[fileStream.Length];
                 MaqFoto = reader.ReadBytes((int)MaqFoto.Length);
             }
-            int resultado = 0;
             try
             {
-                resultado = promocional.crearPromocional(txtNombre.Text, MaqFoto);
+                if (MaqFoto != null)
+                {
+                    resultado = promocional.crearPromocional(txtNombre.Text, MaqFoto);
+                    misPromocionales();
+                }
+                else
+                {
+                    MessageBox.Show("Suba una imagen", "Formato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -77,11 +89,34 @@ namespace TiendaVirtual.Ventanas
 
             if (resultado > 0)
             {
-                MessageBox.Show("Producto Creado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Promocional Creado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Error! Producto NO Creado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error! Promocional NO Creado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void misPromocionales()
+        {
+            flowLayoutProm.Controls.Clear();
+            promocionales = promocional.tusPromocionales();
+            int ancho, alto;
+            ancho = (350);
+            alto = (140);
+
+            for (int i = 0; i < promocionales.Count; i++)
+            {
+                p = new Panel();
+
+                p.TabIndex = i;
+                p.Margin = new Padding(0, 25, 25, 0);
+                p.Size = new Size(ancho, alto);
+                ms = new MemoryStream(promocionales[i].PromFoto);
+                p.BackgroundImage = Image.FromStream(ms);
+                p.BackgroundImageLayout = ImageLayout.Zoom;
+                p.BackColor = Color.Black;
+
+                flowLayoutProm.Controls.Add(p);
             }
         }
     }

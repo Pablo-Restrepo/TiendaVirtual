@@ -33,7 +33,7 @@ namespace TiendaVirtual.Ventanas
         {
             int ancho, alto;
             ancho = (flowLayoutCompras.Width / 4);
-            alto = (flowLayoutCompras.Height / 2);
+            alto = (flowLayoutCompras.Height / 2 + 30);
 
             for (int i = 0; i < datosCompra.Count; i++)
             {

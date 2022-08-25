@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,7 @@ namespace TiendaVirtual.Ventanas
         private List<clsProducto> datosProducto = new List<clsProducto>();
         private clsProducto producto = new clsProducto();
         private int cantidad = 1;
+        private ArrayList guardados = new ArrayList();
         public IForm contrato { get; set; }
         public long idproducto { get; set; }
         public float total { get; set; }
@@ -138,7 +140,6 @@ namespace TiendaVirtual.Ventanas
 
         private void pbMenos_Click(object sender, EventArgs e)
         {
-            
             if (cantidad >= 2)
             {
                 cantidad--;
@@ -152,6 +153,40 @@ namespace TiendaVirtual.Ventanas
             cantidad++;
             total = total + aux;
             lblCantidad.Text = cantidad.ToString();
+        }
+
+        private void pbLike_Click(object sender, EventArgs e)
+        {
+            guardar();
+        }
+        private void guardar()
+        {
+            if (estaGuardado(idproducto))
+            {
+                pbLike.BackgroundImage = Properties.Resources.nolike;
+                producto.eliminarGuardarProducto(datosProducto[0].ProId);
+            }
+            else
+            {
+                producto.guardarProducto(idproducto);
+                pbLike.BackgroundImage = Properties.Resources.like;
+            }
+        }
+        private void prodGuardados()
+        {
+            guardados = producto.consultarGuardados();
+        }
+        private Boolean estaGuardado(long idproducto)
+        {
+            prodGuardados();
+            for (int i = 0; i < guardados.Count; i++)
+            {
+                if (long.Parse(guardados[i].ToString()) == idproducto)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

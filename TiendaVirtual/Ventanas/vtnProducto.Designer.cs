@@ -39,6 +39,7 @@
             this.lblInfo = new System.Windows.Forms.Label();
             this.pbMas = new System.Windows.Forms.Button();
             this.pbMenos = new System.Windows.Forms.Button();
+            this.pbLike = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbComprar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenProd)).BeginInit();
             this.SuspendLayout();
@@ -187,12 +188,31 @@
             this.pbMenos.UseVisualStyleBackColor = false;
             this.pbMenos.Click += new System.EventHandler(this.pbMenos_Click);
             // 
+            // pbLike
+            // 
+            this.pbLike.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pbLike.BackColor = System.Drawing.Color.Transparent;
+            this.pbLike.BackgroundImage = global::TiendaVirtual.Properties.Resources.nolike;
+            this.pbLike.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbLike.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbLike.FlatAppearance.BorderSize = 0;
+            this.pbLike.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.pbLike.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.pbLike.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pbLike.Location = new System.Drawing.Point(860, 3);
+            this.pbLike.Name = "pbLike";
+            this.pbLike.Size = new System.Drawing.Size(35, 35);
+            this.pbLike.TabIndex = 23;
+            this.pbLike.UseVisualStyleBackColor = false;
+            this.pbLike.Click += new System.EventHandler(this.pbLike_Click);
+            // 
             // vtnProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(42)))));
             this.ClientSize = new System.Drawing.Size(921, 600);
+            this.Controls.Add(this.pbLike);
             this.Controls.Add(this.pbMenos);
             this.Controls.Add(this.pbMas);
             this.Controls.Add(this.lblInfo);
@@ -228,5 +248,6 @@
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Button pbMas;
         private System.Windows.Forms.Button pbMenos;
+        public System.Windows.Forms.Button pbLike;
     }
 }

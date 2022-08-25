@@ -49,7 +49,7 @@ namespace TiendaVirtual.Ventanas
             {
                 bandera2 = false;
                 bandera = true;
-                pbProDesc.Visible = true;
+                pbProMasGuar.Visible = true;
                 pbVendedores.Visible = true;
             }
             if (this.Width >= 1250 && this.Width < 1600 && bandera)
@@ -57,29 +57,29 @@ namespace TiendaVirtual.Ventanas
                 
                 bandera2 = true;
                 pbVendedores.Visible = true;
-                pbProDesc.Visible = false;
+                pbProMasGuar.Visible = false;
             }
             if (this.Width < 1250 && !bandera)
             {
                 bandera = true;
                 bandera2 = true;
                 pbVendedores.Visible = false;
-                pbProDesc.Visible = false;
+                pbProMasGuar.Visible = false;
             }
             else if (this.Width < 1250 && !bandera2)
             {
                 bandera = true;
                 bandera2 = true;
                 pbVendedores.Visible = false;
-                pbProDesc.Visible = false;
+                pbProMasGuar.Visible = false;
             }
         }
         private void generarBloques()
         {
             int ancho, alto;
-            ancho = (flowLayoutInicio.Width / 4 - 30);
-            alto = (flowLayoutInicio.Height + 1);
-
+            ancho = (197);
+            alto = (260);
+            flowLayoutInicio.Controls.Clear();
             for (int i = 0; i < datosProducto.Count; i++)
             {
                 p = new Panel();
@@ -238,7 +238,7 @@ namespace TiendaVirtual.Ventanas
                 costo.Location = new Point(0, 67);
                 p.Controls.Add(costo);
 
-                pbProDesc.Controls.Add(p);
+                pbProMasGuar.Controls.Add(p);
                 p.Click += new EventHandler(cliquearPanel);
                 costo.Click += new EventHandler(cliquearLabel);
             }
@@ -287,6 +287,14 @@ namespace TiendaVirtual.Ventanas
             aux.idproducto = datosProducto[TabIndex].ProId;
             aux.total = datosProducto[TabIndex].ProPrecio;
             aux.aux = datosProducto[TabIndex].ProPrecio;
+            if (estaGuardado(datosProducto[TabIndex].ProId))
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.like;
+            }
+            else
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.nolike;
+            }
             return aux;
         }
         private void panelPromo()
@@ -329,6 +337,48 @@ namespace TiendaVirtual.Ventanas
                 }
             }
             return false;
+        }
+
+        private void btnTodo_Click(object sender, EventArgs e)
+        {
+            btnTodo.BackgroundImage = Properties.Resources.conten2;
+            btnDeporte.BackgroundImage = Properties.Resources.conten;
+            btnHogar.BackgroundImage = Properties.Resources.conten;
+            btnTecnologia.BackgroundImage = Properties.Resources.conten;
+
+            datosProductos();
+            generarBloques();
+        }
+
+        private void btnHogar_Click(object sender, EventArgs e)
+        {
+            btnTodo.BackgroundImage = Properties.Resources.conten;
+            btnDeporte.BackgroundImage = Properties.Resources.conten;
+            btnHogar.BackgroundImage = Properties.Resources.conten2;
+            btnTecnologia.BackgroundImage = Properties.Resources.conten;
+
+            datosProducto = producto.hogarProducto();
+            generarBloques();
+        }
+
+        private void btnTecnologia_Click(object sender, EventArgs e)
+        {
+            btnTodo.BackgroundImage = Properties.Resources.conten;
+            btnDeporte.BackgroundImage = Properties.Resources.conten;
+            btnHogar.BackgroundImage = Properties.Resources.conten;
+            btnTecnologia.BackgroundImage = Properties.Resources.conten2;
+            datosProducto = producto.tecnologiaProducto();
+            generarBloques();
+        }
+
+        private void btnDeporte_Click(object sender, EventArgs e)
+        {
+            btnTodo.BackgroundImage = Properties.Resources.conten;
+            btnDeporte.BackgroundImage = Properties.Resources.conten2;
+            btnHogar.BackgroundImage = Properties.Resources.conten;
+            btnTecnologia.BackgroundImage = Properties.Resources.conten;
+            datosProducto = producto.deporteProducto();
+            generarBloques();
         }
     }
 }

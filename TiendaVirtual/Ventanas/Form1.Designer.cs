@@ -54,12 +54,14 @@ namespace TiendaVirtual
             this.lblInicio = new System.Windows.Forms.Label();
             this.pbMenu = new System.Windows.Forms.PictureBox();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.pbPerfil = new TiendaVirtual.Styles.RoundedButton2();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.pbPerfil = new TiendaVirtual.Styles.RoundedButton();
             this.lblUser = new System.Windows.Forms.Label();
             this.pbNotifi = new System.Windows.Forms.PictureBox();
             this.pbBuscar = new System.Windows.Forms.PictureBox();
             this.panelCentral = new System.Windows.Forms.Panel();
+            this.flowLayoutNotifi = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLinea2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
@@ -67,6 +69,7 @@ namespace TiendaVirtual
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNotifi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).BeginInit();
+            this.panelCentral.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -419,8 +422,8 @@ namespace TiendaVirtual
             // 
             // panelTop
             // 
-            this.panelTop.Controls.Add(this.txtBuscar);
             this.panelTop.Controls.Add(this.pbPerfil);
+            this.panelTop.Controls.Add(this.txtBuscar);
             this.panelTop.Controls.Add(this.lblUser);
             this.panelTop.Controls.Add(this.pbNotifi);
             this.panelTop.Controls.Add(this.pbBuscar);
@@ -429,6 +432,21 @@ namespace TiendaVirtual
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(921, 91);
             this.panelTop.TabIndex = 1;
+            // 
+            // pbPerfil
+            // 
+            this.pbPerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbPerfil.BackgroundImage = global::TiendaVirtual.Properties.Resources.fotoPerfil;
+            this.pbPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbPerfil.FlatAppearance.BorderSize = 0;
+            this.pbPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pbPerfil.Location = new System.Drawing.Point(735, 27);
+            this.pbPerfil.Name = "pbPerfil";
+            this.pbPerfil.Size = new System.Drawing.Size(40, 40);
+            this.pbPerfil.TabIndex = 21;
+            this.pbPerfil.UseVisualStyleBackColor = true;
+            this.pbPerfil.Click += new System.EventHandler(this.pbPerfil_Click);
             // 
             // txtBuscar
             // 
@@ -442,21 +460,8 @@ namespace TiendaVirtual
             this.txtBuscar.TabIndex = 20;
             this.txtBuscar.Text = "Buscar Productos...";
             this.txtBuscar.Click += new System.EventHandler(this.txtBuscar_Click);
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             this.txtBuscar.Leave += new System.EventHandler(this.txtBuscar_Leave);
-            // 
-            // pbPerfil
-            // 
-            this.pbPerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbPerfil.BackgroundImage = global::TiendaVirtual.Properties.Resources.images;
-            this.pbPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbPerfil.FlatAppearance.BorderSize = 0;
-            this.pbPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pbPerfil.Location = new System.Drawing.Point(735, 27);
-            this.pbPerfil.Name = "pbPerfil";
-            this.pbPerfil.Size = new System.Drawing.Size(40, 40);
-            this.pbPerfil.TabIndex = 19;
-            this.pbPerfil.UseVisualStyleBackColor = true;
             // 
             // lblUser
             // 
@@ -471,6 +476,7 @@ namespace TiendaVirtual
             this.lblUser.Size = new System.Drawing.Size(100, 20);
             this.lblUser.TabIndex = 17;
             this.lblUser.Text = "NomUsuario";
+            this.lblUser.Click += new System.EventHandler(this.lblUser_Click);
             // 
             // pbNotifi
             // 
@@ -483,6 +489,7 @@ namespace TiendaVirtual
             this.pbNotifi.Size = new System.Drawing.Size(27, 27);
             this.pbNotifi.TabIndex = 16;
             this.pbNotifi.TabStop = false;
+            this.pbNotifi.Click += new System.EventHandler(this.pbNotifi_Click);
             // 
             // pbBuscar
             // 
@@ -496,11 +503,33 @@ namespace TiendaVirtual
             // 
             // panelCentral
             // 
+            this.panelCentral.Controls.Add(this.flowLayoutNotifi);
+            this.panelCentral.Controls.Add(this.flowLayoutPanel1);
             this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCentral.Location = new System.Drawing.Point(86, 91);
             this.panelCentral.Name = "panelCentral";
             this.panelCentral.Size = new System.Drawing.Size(921, 600);
             this.panelCentral.TabIndex = 2;
+            // 
+            // flowLayoutNotifi
+            // 
+            this.flowLayoutNotifi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutNotifi.AutoScroll = true;
+            this.flowLayoutNotifi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(29)))), ((int)(((byte)(53)))));
+            this.flowLayoutNotifi.Location = new System.Drawing.Point(579, 2);
+            this.flowLayoutNotifi.Name = "flowLayoutNotifi";
+            this.flowLayoutNotifi.Size = new System.Drawing.Size(260, 344);
+            this.flowLayoutNotifi.TabIndex = 22;
+            this.flowLayoutNotifi.Visible = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(921, 600);
+            this.flowLayoutPanel1.TabIndex = 23;
             // 
             // Form1
             // 
@@ -525,6 +554,7 @@ namespace TiendaVirtual
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNotifi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).EndInit();
+            this.panelCentral.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -538,7 +568,6 @@ namespace TiendaVirtual
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.PictureBox pbNotifi;
         private System.Windows.Forms.PictureBox pbBuscar;
-        private Styles.RoundedButton pbPerfil;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label lblInicio;
         private System.Windows.Forms.Button btnInicio;
@@ -560,6 +589,9 @@ namespace TiendaVirtual
         private Label lblInformacion;
         private PictureBox pbLinea;
         private PictureBox pbLinea2;
+        private Styles.RoundedButton2 pbPerfil;
+        private FlowLayoutPanel flowLayoutNotifi;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
 
