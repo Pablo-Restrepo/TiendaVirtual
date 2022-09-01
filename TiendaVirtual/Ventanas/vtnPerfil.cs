@@ -41,6 +41,7 @@ namespace TiendaVirtual.Ventanas
             try
             {
                 OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Archivos de texto (*.jpg)|*.jpg";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     FotoLocation = ofd.FileName.ToString();
@@ -114,21 +115,28 @@ namespace TiendaVirtual.Ventanas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtNuevaContra.Text == txtRecContra.Text)
+            if (txtNuevaContra.Text != "" | txtRecContra.Text != "" | txtNuevaContra.Text != "")
             {
-                if (userinfo.confirmarContrasenia(txtContraActual.Text))
+                if (txtNuevaContra.Text == txtRecContra.Text)
                 {
-                    userinfo.cambiarContrasenia(txtNuevaContra.Text);
-                    MessageBox.Show("Contraseña cambiada!");
+                    if (userinfo.confirmarContrasenia(txtContraActual.Text))
+                    {
+                        userinfo.cambiarContrasenia(txtNuevaContra.Text);
+                        MessageBox.Show("Contraseña cambiada!", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("La contraseña actual es incorrecta. Rectificar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("La contraseña actual es incorrecta. Rectificar");
+                    MessageBox.Show("Las contraseñas no son iguales. Rectificar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Las contraseñas no son iguales. Rectificar");
+                MessageBox.Show("Hay campos vacios!", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -143,14 +151,21 @@ namespace TiendaVirtual.Ventanas
 
         private void btnCambiarNombre_Click(object sender, EventArgs e)
         {
-            userinfo.cambiarNombre(txtNombre.Text);
-            MessageBox.Show("Nombre Cambiado!");
-            lblNombre.Text = "Nombre: " + txtNombre.Text;
-            txtNombre.Visible = false;
-            pictureBox3.Visible = false;
-            btnCambiarNombre.Visible = false;
-            lblNombre.Visible = true;
-            lblEditarNomb.Visible = true;
+            if (txtNombre.Text != "")
+            {
+                userinfo.cambiarNombre(txtNombre.Text);
+                MessageBox.Show("Nombre cambiado!", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lblNombre.Text = "Nombre: " + txtNombre.Text;
+                txtNombre.Visible = false;
+                pictureBox3.Visible = false;
+                btnCambiarNombre.Visible = false;
+                lblNombre.Visible = true;
+                lblEditarNomb.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Hay campos vacios!", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lblEditarFecha_Click(object sender, EventArgs e)
@@ -164,14 +179,21 @@ namespace TiendaVirtual.Ventanas
 
         private void btnCambiarFecha_Click(object sender, EventArgs e)
         {
-            userinfo.cambiarFechaNaci(dtFecha.Text);
-            MessageBox.Show("Fecha Cambiada!");
-            lblFechaNac.Text = "Fecha Nacimiento: " + dtFecha.Text;
-            pictureBox4.Visible = false;
-            dtFecha.Visible = false;
-            btnCambiarFecha.Visible = false;
-            lblFechaNac.Visible = true;
-            lblEditarFecha.Visible = true;
+            if (dtFecha.Text != "")
+            {
+                userinfo.cambiarFechaNaci(dtFecha.Text);
+                MessageBox.Show("Fecha Cambiada!", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lblFechaNac.Text = "Fecha Nacimiento: " + dtFecha.Text;
+                pictureBox4.Visible = false;
+                dtFecha.Visible = false;
+                btnCambiarFecha.Visible = false;
+                lblFechaNac.Visible = true;
+                lblEditarFecha.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Hay campos vacios!", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

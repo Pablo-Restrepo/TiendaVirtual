@@ -40,6 +40,7 @@
             this.pbMas = new System.Windows.Forms.Button();
             this.pbMenos = new System.Windows.Forms.Button();
             this.pbLike = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbComprar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenProd)).BeginInit();
             this.SuspendLayout();
@@ -206,6 +207,14 @@
             this.pbLike.UseVisualStyleBackColor = false;
             this.pbLike.Click += new System.EventHandler(this.pbLike_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(921, 600);
+            this.panel1.TabIndex = 24;
+            // 
             // vtnProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,6 +233,7 @@
             this.Controls.Add(this.pbImagenProd);
             this.Controls.Add(this.lblNombreProd);
             this.Controls.Add(this.flowLayoutProductos);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(921, 600);
             this.Name = "vtnProducto";
@@ -249,5 +259,6 @@
         private System.Windows.Forms.Button pbMas;
         private System.Windows.Forms.Button pbMenos;
         public System.Windows.Forms.Button pbLike;
+        private System.Windows.Forms.Panel panel1;
     }
 }

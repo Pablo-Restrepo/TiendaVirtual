@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TiendaVirtual.Logica;
 using TiendaVirtual.Ventanas;
@@ -31,6 +26,7 @@ namespace TiendaVirtual
         private List<clsProducto> datosProducto = new List<clsProducto>();
         private ArrayList guardados = new ArrayList();
         public IForm contrato { get; set; }
+
         public Form1()
         {
             InitializeComponent();
@@ -419,12 +415,14 @@ namespace TiendaVirtual
                 title.ForeColor = Color.White;
                 title.TabIndex = i;
                 title.Cursor = Cursors.Hand;
+                title.BackColor = Color.Transparent;
 
                 costo.Text = "$" + datosProducto[i].ProPrecio.ToString();
                 costo.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 costo.TabIndex = i;
                 costo.ForeColor = Color.White;
                 costo.Cursor = Cursors.Hand;
+                costo.BackColor = Color.Transparent;
 
                 title.Location = new Point(15, 185);
                 costo.Location = new Point(15, 210);

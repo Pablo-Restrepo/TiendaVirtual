@@ -4,9 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TiendaVirtual.Logica
 {
@@ -18,8 +15,8 @@ namespace TiendaVirtual.Logica
         public string ProCategoria;
         public string ProDescripcion;
         public byte[] prodFoto = new byte[0];
+        private AccesoDatos dt = new AccesoDatos();
 
-        AccesoDatos dt = new AccesoDatos();
         public List<clsProducto> consultarProductos()
         {
             List<clsProducto> datos = new List<clsProducto>();
@@ -377,7 +374,7 @@ namespace TiendaVirtual.Logica
 
             DataSet dataSet = new DataSet();
             string consulta;
-            consulta = "SELECT * FROM PRODUCTO WHERE PRO_CATEGORIA = 'Tecnologia'";
+            consulta = "SELECT PRODUCTO.* FROM PRODUCTO INNER JOIN(SELECT PRO_ID FROM compra GROUP BY PRO_ID ORDER  BY SUM(COM_CANTIDAD) DESC FETCH FIRST 3 ROWS ONLY) T ON T.PRO_ID = PRODUCTO.PRO_ID";
             dataSet = dt.ejecutarSELECT(consulta);
 
             if (dataSet.Tables[0].Rows.Count > 0)
@@ -410,7 +407,40 @@ namespace TiendaVirtual.Logica
 
             DataSet dataSet = new DataSet();
             string consulta;
-            consulta = "SELECT * FROM PRODUCTO WHERE PRO_CATEGORIA = 'Tecnologia'";
+            consulta = "SELECT PRODUCTO.* FROM PRODUCTO INNER JOIN(SELECT PRO_ID FROM guarda GROUP BY PRO_ID ORDER  BY count(PRO_ID) DESC FETCH FIRST 3 ROWS ONLY) T ON T.PRO_ID = PRODUCTO.PRO_ID";
+            dataSet = dt.ejecutarSELECT(consulta);
+
+            if (dataSet.Tables[0].Rows.Count > 0)
+            {
+                for (int j = 0; j < dataSet.Tables[0].Rows.Count; j++)
+                {
+                    clsProducto producto = new clsProducto();
+                    producto.ProId = Int32.Parse(dataSet.Tables[0].Rows[j].ItemArray[0].ToString());
+                    producto.ProNombre = dataSet.Tables[0].Rows[j].ItemArray[2].ToString();
+                    producto.ProPrecio = float.Parse(dataSet.Tables[0].Rows[j].ItemArray[3].ToString());
+                    producto.ProCategoria = dataSet.Tables[0].Rows[j].ItemArray[4].ToString();
+                    producto.ProDescripcion = dataSet.Tables[0].Rows[j].ItemArray[5].ToString();
+                    if (dataSet.Tables[0].Rows[j].ItemArray[6].ToString().Equals(""))
+                    {
+                        byte[] imagen = File.ReadAllBytes("..\\..\\Resources\\default.png");
+                        producto.prodFoto = imagen;
+                    }
+                    else
+                    {
+                        producto.prodFoto = (byte[])dataSet.Tables[0].Rows[j].ItemArray[6];
+                    }
+                    datos.Add(producto);
+                }
+            }
+            return datos;
+        }
+        public List<clsProducto> masBaratoProducto()
+        {
+            List<clsProducto> datos = new List<clsProducto>();
+
+            DataSet dataSet = new DataSet();
+            string consulta;
+            consulta = "SELECT * FROM PRODUCTO ORDER BY PRO_PRECIO FETCH FIRST 3 ROWS ONLY";
             dataSet = dt.ejecutarSELECT(consulta);
 
             if (dataSet.Tables[0].Rows.Count > 0)

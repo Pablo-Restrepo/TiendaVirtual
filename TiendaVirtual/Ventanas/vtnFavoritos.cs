@@ -154,6 +154,14 @@ namespace TiendaVirtual.Ventanas
             aux.idproducto = datosProducto[TabIndex].ProId;
             aux.total = datosProducto[TabIndex].ProPrecio;
             aux.aux = datosProducto[TabIndex].ProPrecio;
+            if (estaGuardado(datosProducto[TabIndex].ProId))
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.like;
+            }
+            else
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.nolike;
+            }
             return aux;
         }
         private Boolean estaGuardado(long idproducto)

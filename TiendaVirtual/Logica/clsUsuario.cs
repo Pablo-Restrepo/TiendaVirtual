@@ -1,11 +1,7 @@
 ﻿using AppGestionConsorcio.datos;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TiendaVirtual.Logica
 {
@@ -15,8 +11,31 @@ namespace TiendaVirtual.Logica
         public string UsuNombre;
         public string UsuFechaNac;
         public byte[] UsuFoto = new byte[0];
-        AccesoDatos dt = new AccesoDatos();
+        private AccesoDatos dt = new AccesoDatos();
 
+        public int registrarUsuario(string username, string contrasenia, string nombre, string fecha)
+        {
+            int resultado;
+            string consulta;
+            consulta = "INSERT INTO USUARIO(usu_username , usu_password , usu_nombre , usu_fechanacimiento) VALUES ('" + username + "','" + contrasenia + "','" + nombre + "','" + fecha + "')";
+            resultado = dt.ejecutarDML(consulta);
+            return resultado;
+        }
+        public Boolean iniciarSesionUsuario(string username, string contrasenia)
+        {
+            DataSet dataSet = new DataSet();
+            string consulta;
+            consulta = "SELECT USU_PASSWORD FROM USUARIO WHERE usu_username = '" + username + "'";
+            dataSet = dt.ejecutarSELECT(consulta);
+            if (dataSet.Tables[0].Rows.Count != 0)
+            {
+                if (dataSet.Tables[0].Rows[0].ItemArray[0].ToString() == contrasenia)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         public clsUsuario consultarDatosUser()
         {
             clsUsuario datos = new clsUsuario();
@@ -84,6 +103,18 @@ namespace TiendaVirtual.Logica
             consulta = "UPDATE USUARIO SET usu_fechanacimiento ='" + fecha + "' WHERE USU_USERNAME ='" + Cache.User + "'";
             resultado = dt.ejecutarDML(consulta);
             return resultado;
+        }
+        public Boolean usuarioYaExiste(string usuario)
+        {
+            DataSet dataSet = new DataSet();
+            string consulta;
+            consulta = "SELECT USU_USERNAME FROM USUARIO WHERE USU_USERNAME = '" + usuario + "'";
+            dataSet = dt.ejecutarSELECT(consulta);
+            if (dataSet.Tables[0].Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

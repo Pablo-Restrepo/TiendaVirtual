@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TiendaVirtual.Logica
 {
@@ -14,7 +11,7 @@ namespace TiendaVirtual.Logica
         public long PromId;
         public string PromNombre;
         public byte[] PromFoto = new byte[0];
-        AccesoDatos dt = new AccesoDatos();
+        private AccesoDatos dt = new AccesoDatos();
 
         public int crearPromocional(string nombre, byte[] imagen)
         {

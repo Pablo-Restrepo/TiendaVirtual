@@ -213,6 +213,16 @@ namespace TiendaVirtual.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fondo3 {
+            get {
+                object obj = ResourceManager.GetObject("fondo3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondoInicio {
             get {
                 object obj = ResourceManager.GetObject("fondoInicio", resourceCulture);
@@ -326,6 +336,16 @@ namespace TiendaVirtual.Properties {
         internal static System.Drawing.Bitmap mas {
             get {
                 object obj = ResourceManager.GetObject("mas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap masBaratos {
+            get {
+                object obj = ResourceManager.GetObject("masBaratos", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -375,6 +375,12 @@
   <ItemGroup>
     <None Include="Resources\fondo2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\masBaratos.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

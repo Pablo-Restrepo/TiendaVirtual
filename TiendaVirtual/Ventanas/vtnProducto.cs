@@ -25,6 +25,7 @@ namespace TiendaVirtual.Ventanas
         private clsProducto producto = new clsProducto();
         private int cantidad = 1;
         private ArrayList guardados = new ArrayList();
+        private Form fH;
         public IForm contrato { get; set; }
         public long idproducto { get; set; }
         public float total { get; set; }
@@ -100,15 +101,97 @@ namespace TiendaVirtual.Ventanas
                 p.Controls.Add(costo);
 
                 flowLayoutProductos.Controls.Add(p);
-                p.Click += new EventHandler(cliquear);
-                pb.Click += new EventHandler(cliquear);
-                title.Click += new EventHandler(cliquear);
-                costo.Click += new EventHandler(cliquear);
+                p.Click += new EventHandler(cliquearPanel);
+                pb.Click += new EventHandler(cliquearPb);
+                title.Click += new EventHandler(cliquearLabel);
+                costo.Click += new EventHandler(cliquearLabel);
             }
         }
-        private void cliquear(object sender, EventArgs e)
+        private void cliquearPanel(object sender, EventArgs e)
         {
-            contrato.Ejecutar(new vtnProducto());
+            p = new Panel();
+            p = (Panel)sender;
+            vtnProducto aux = new vtnProducto();
+            ms = new MemoryStream(datosProducto[p.TabIndex].prodFoto);
+            aux.lblNombreProd.Text = datosProducto[p.TabIndex].ProNombre.ToString();
+            aux.lblPrecio.Text = "Precio:  $" + datosProducto[p.TabIndex].ProPrecio.ToString();
+            aux.lblDescrip.Text = datosProducto[p.TabIndex].ProDescripcion.ToString();
+            aux.pbImagenProd.BackgroundImage = Image.FromStream(ms);
+            aux.idproducto = datosProducto[p.TabIndex].ProId;
+            aux.total = datosProducto[p.TabIndex].ProPrecio;
+            aux.aux = datosProducto[p.TabIndex].ProPrecio;
+            if (estaGuardado(datosProducto[p.TabIndex].ProId))
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.like;
+            }
+            else
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.nolike;
+            }
+            abrirFormHija(aux);
+        }
+        private void cliquearLabel(object sender, EventArgs e)
+        {
+            title = new Label();
+            title = (Label)sender;
+            vtnProducto aux = new vtnProducto();
+            ms = new MemoryStream(datosProducto[title.TabIndex].prodFoto);
+            aux.lblNombreProd.Text = datosProducto[title.TabIndex].ProNombre.ToString();
+            aux.lblPrecio.Text = "Precio:  $" + datosProducto[title.TabIndex].ProPrecio.ToString();
+            aux.lblDescrip.Text = datosProducto[title.TabIndex].ProDescripcion.ToString();
+            aux.pbImagenProd.BackgroundImage = Image.FromStream(ms);
+            aux.idproducto = datosProducto[title.TabIndex].ProId;
+            aux.total = datosProducto[title.TabIndex].ProPrecio;
+            aux.aux = datosProducto[title.TabIndex].ProPrecio;
+            if (estaGuardado(datosProducto[title.TabIndex].ProId))
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.like;
+            }
+            else
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.nolike;
+            }
+            abrirFormHija(aux);
+        }
+        private void cliquearPb(object sender, EventArgs e)
+        {
+            pb = new PictureBox();
+            pb = (PictureBox)sender;
+            vtnProducto aux = new vtnProducto();
+            ms = new MemoryStream(datosProducto[pb.TabIndex].prodFoto);
+            aux.lblNombreProd.Text = datosProducto[pb.TabIndex].ProNombre.ToString();
+            aux.lblPrecio.Text = "Precio:  $" + datosProducto[pb.TabIndex].ProPrecio.ToString();
+            aux.lblDescrip.Text = datosProducto[pb.TabIndex].ProDescripcion.ToString();
+            aux.pbImagenProd.BackgroundImage = Image.FromStream(ms);
+            aux.idproducto = datosProducto[pb.TabIndex].ProId;
+            aux.total = datosProducto[pb.TabIndex].ProPrecio;
+            aux.aux = datosProducto[pb.TabIndex].ProPrecio;
+            if (estaGuardado(datosProducto[pb.TabIndex].ProId))
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.like;
+            }
+            else
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.nolike;
+            }
+            abrirFormHija(aux);
+        }
+        public void abrirFormHija(object formHija)
+        {
+            if (this.Controls.Count > 0)
+            {
+                this.Controls.Clear();
+            }
+            if (fH != null)
+            {
+                fH.Dispose();
+            }
+            fH = formHija as Form;
+            fH.TopLevel = false;
+            fH.Dock = DockStyle.Fill;
+            this.Controls.Add(fH);
+            this.Tag = fH;
+            fH.Show();
         }
         private void datosProductos()
         {

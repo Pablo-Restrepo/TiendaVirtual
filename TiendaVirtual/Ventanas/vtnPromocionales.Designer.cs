@@ -36,6 +36,7 @@
             this.pbPublicar = new System.Windows.Forms.PictureBox();
             this.lnlInfo2 = new System.Windows.Forms.Label();
             this.flowLayoutProm = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbFondo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSubirFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
@@ -138,6 +139,17 @@
             this.flowLayoutProm.Size = new System.Drawing.Size(890, 142);
             this.flowLayoutProm.TabIndex = 35;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Montserrat ExtraBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(300, 178);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(259, 20);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Imagen preferencial panoramica*";
+            // 
             // vtnPromocionales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,6 +157,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(42)))));
             this.ClientSize = new System.Drawing.Size(921, 600);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutProm);
             this.Controls.Add(this.lnlInfo2);
             this.Controls.Add(this.pbPublicar);
@@ -176,5 +189,6 @@
         private System.Windows.Forms.PictureBox pbPublicar;
         private System.Windows.Forms.Label lnlInfo2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutProm;
+        private System.Windows.Forms.Label label1;
     }
 }

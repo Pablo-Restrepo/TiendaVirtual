@@ -27,6 +27,9 @@ namespace TiendaVirtual.Ventanas
         private PictureBox pb;
         private PictureBox like;
         private List<clsProducto> datosProducto = new List<clsProducto>();
+        private List<clsProducto> datosProducto1 = new List<clsProducto>();
+        private List<clsProducto> datosProducto2 = new List<clsProducto>();
+        private List<clsProducto> datosProducto3 = new List<clsProducto>();
         private clsProducto producto = new clsProducto();
         private clsPromocional promocional = new clsPromocional();
         private ArrayList guardados = new ArrayList();
@@ -153,25 +156,24 @@ namespace TiendaVirtual.Ventanas
             int ancho, alto;
             ancho = (pbProdMasComp.Width / 4 + 10);
             alto = (pbProdMasComp.Height / 2 - 15);
-            int cant = 0;
 
-            for (int i = 0; i < 3; i++)
+            datosProducto1 = producto.masCompradoProducto();
+
+            for (int i = 0; i < datosProducto1.Count; i++)
             {
                 p = new Panel();
                 costo = new Label();
 
-                cant++;
                 p.TabIndex = i;
                 p.Margin = new Padding(13, 110, 0, 0);
                 p.Size = new Size(ancho, alto);
                 p.Cursor = Cursors.Hand;
-                byte[] imagen = File.ReadAllBytes("..\\..\\Resources\\teclado.jpg");
-                ms = new MemoryStream(imagen);
+                ms = new MemoryStream(datosProducto1[i].prodFoto);
                 p.BackgroundImage = Image.FromStream(ms);
                 p.BackgroundImageLayout = ImageLayout.Zoom;
                 p.BackColor = Color.White;
 
-                costo.Text = "$200.000";
+                costo.Text = "$" + datosProducto1[i].ProPrecio.ToString();
                 costo.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 costo.TabIndex = i;
                 costo.BackColor = Color.Red;
@@ -181,26 +183,57 @@ namespace TiendaVirtual.Ventanas
                 p.Controls.Add(costo);
 
                 pbProdMasComp.Controls.Add(p);
-                p.Click += new EventHandler(cliquearPanel);
-                costo.Click += new EventHandler(cliquearLabel);
+                p.Click += new EventHandler(cliquearPanel1);
+                costo.Click += new EventHandler(cliquearLabel1);
             }
-            for (int i = 0; i < 3; i++)
+
+            datosProducto2 = producto.masGuardosProducto();
+
+            for (int i = 0; i < datosProducto2.Count; i++)
             {
                 p = new Panel();
                 costo = new Label();
 
-                cant++;
                 p.TabIndex = i;
                 p.Margin = new Padding(13, 110, 0, 0);
                 p.Size = new Size(ancho, alto);
                 p.Cursor = Cursors.Hand;
-                byte[] imagen = File.ReadAllBytes("..\\..\\Resources\\teclado.jpg");
-                ms = new MemoryStream(imagen);
+                ms = new MemoryStream(datosProducto2[i].prodFoto);
                 p.BackgroundImage = Image.FromStream(ms);
                 p.BackgroundImageLayout = ImageLayout.Zoom;
                 p.BackColor = Color.White;
 
-                costo.Text = "$200.000";
+                costo.Text = "$" + datosProducto2[i].ProPrecio.ToString();
+                costo.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                costo.TabIndex = i;
+                costo.BackColor = Color.Red;
+                costo.ForeColor = Color.White;
+
+                costo.Location = new Point(0, 67);
+                p.Controls.Add(costo);
+
+                pbProMasGuar.Controls.Add(p);
+                p.Click += new EventHandler(cliquearPanel2);
+                costo.Click += new EventHandler(cliquearLabel2);
+            }
+
+            datosProducto3 = producto.masBaratoProducto();
+
+            for (int i = 0; i < datosProducto3.Count; i++)
+            {
+                p = new Panel();
+                costo = new Label();
+
+                p.TabIndex = i;
+                p.Margin = new Padding(13, 110, 0, 0);
+                p.Size = new Size(ancho, alto);
+                p.Cursor = Cursors.Hand;
+                ms = new MemoryStream(datosProducto3[i].prodFoto);
+                p.BackgroundImage = Image.FromStream(ms);
+                p.BackgroundImageLayout = ImageLayout.Zoom;
+                p.BackColor = Color.White;
+
+                costo.Text = "$" + datosProducto3[i].ProPrecio.ToString();
                 costo.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 costo.TabIndex = i;
                 costo.BackColor = Color.Red;
@@ -213,35 +246,6 @@ namespace TiendaVirtual.Ventanas
                 p.Click += new EventHandler(cliquearPanel);
                 costo.Click += new EventHandler(cliquearLabel);
             }
-            for (int i = 0; i < 3; i++)
-            {
-                p = new Panel();
-                costo = new Label();
-
-                cant++;
-                p.TabIndex = i;
-                p.Margin = new Padding(13, 110, 0, 0);
-                p.Size = new Size(ancho, alto);
-                p.Cursor = Cursors.Hand;
-                byte[] imagen = File.ReadAllBytes("..\\..\\Resources\\teclado.jpg");
-                ms = new MemoryStream(imagen);
-                p.BackgroundImage = Image.FromStream(ms);
-                p.BackgroundImageLayout = ImageLayout.Zoom;
-                p.BackColor = Color.White;
-
-                costo.Text = "$200.000";
-                costo.Font = new System.Drawing.Font("Montserrat SemiBold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                costo.TabIndex = i;
-                costo.BackColor = Color.Red;
-                costo.ForeColor = Color.White;
-
-                costo.Location = new Point(0, 67);
-                p.Controls.Add(costo);
-
-                pbProMasGuar.Controls.Add(p);
-                p.Click += new EventHandler(cliquearPanel);
-                costo.Click += new EventHandler(cliquearLabel);
-            }
         }
         private void cliquearPanel(object sender, EventArgs e)
         {
@@ -249,11 +253,35 @@ namespace TiendaVirtual.Ventanas
             p = (Panel)sender;
             contrato.Ejecutar(agregarDatosVtnProd(p.TabIndex));
         }
+        private void cliquearPanel1(object sender, EventArgs e)
+        {
+            p = new Panel();
+            p = (Panel)sender;
+            contrato.Ejecutar(agregarDatosVtnProd1(p.TabIndex));
+        }
+        private void cliquearPanel2(object sender, EventArgs e)
+        {
+            p = new Panel();
+            p = (Panel)sender;
+            contrato.Ejecutar(agregarDatosVtnProd2(p.TabIndex));
+        }
         private void cliquearLabel(object sender, EventArgs e)
         {
             title = new Label();
             title = (Label)sender;
             contrato.Ejecutar(agregarDatosVtnProd(title.TabIndex));
+        }
+        private void cliquearLabel1(object sender, EventArgs e)
+        {
+            title = new Label();
+            title = (Label)sender;
+            contrato.Ejecutar(agregarDatosVtnProd1(title.TabIndex));
+        }
+        private void cliquearLabel2(object sender, EventArgs e)
+        {
+            title = new Label();
+            title = (Label)sender;
+            contrato.Ejecutar(agregarDatosVtnProd2(title.TabIndex));
         }
         private void cliquearPb(object sender, EventArgs e)
         {
@@ -288,6 +316,48 @@ namespace TiendaVirtual.Ventanas
             aux.total = datosProducto[TabIndex].ProPrecio;
             aux.aux = datosProducto[TabIndex].ProPrecio;
             if (estaGuardado(datosProducto[TabIndex].ProId))
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.like;
+            }
+            else
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.nolike;
+            }
+            return aux;
+        }
+        private vtnProducto agregarDatosVtnProd1(int TabIndex)
+        {
+            vtnProducto aux = new vtnProducto();
+            ms = new MemoryStream(datosProducto1[TabIndex].prodFoto);
+            aux.lblNombreProd.Text = datosProducto1[TabIndex].ProNombre.ToString();
+            aux.lblPrecio.Text = "Precio:  $" + datosProducto1[TabIndex].ProPrecio.ToString();
+            aux.lblDescrip.Text = datosProducto1[TabIndex].ProDescripcion.ToString();
+            aux.pbImagenProd.BackgroundImage = Image.FromStream(ms);
+            aux.idproducto = datosProducto1[TabIndex].ProId;
+            aux.total = datosProducto1[TabIndex].ProPrecio;
+            aux.aux = datosProducto1[TabIndex].ProPrecio;
+            if (estaGuardado(datosProducto1[TabIndex].ProId))
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.like;
+            }
+            else
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.nolike;
+            }
+            return aux;
+        }
+        private vtnProducto agregarDatosVtnProd2(int TabIndex)
+        {
+            vtnProducto aux = new vtnProducto();
+            ms = new MemoryStream(datosProducto2[TabIndex].prodFoto);
+            aux.lblNombreProd.Text = datosProducto2[TabIndex].ProNombre.ToString();
+            aux.lblPrecio.Text = "Precio:  $" + datosProducto2[TabIndex].ProPrecio.ToString();
+            aux.lblDescrip.Text = datosProducto2[TabIndex].ProDescripcion.ToString();
+            aux.pbImagenProd.BackgroundImage = Image.FromStream(ms);
+            aux.idproducto = datosProducto2[TabIndex].ProId;
+            aux.total = datosProducto2[TabIndex].ProPrecio;
+            aux.aux = datosProducto2[TabIndex].ProPrecio;
+            if (estaGuardado(datosProducto2[TabIndex].ProId))
             {
                 aux.pbLike.BackgroundImage = Properties.Resources.like;
             }

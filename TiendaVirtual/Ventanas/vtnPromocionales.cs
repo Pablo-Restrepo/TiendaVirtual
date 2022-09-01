@@ -46,6 +46,7 @@ namespace TiendaVirtual.Ventanas
             try
             {
                 OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Archivos de texto (*.jpg)|*.jpg";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     FotoLocation = ofd.FileName.ToString();
@@ -54,7 +55,7 @@ namespace TiendaVirtual.Ventanas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Formato DE archivo incorrecto", ex.Message);
+                MessageBox.Show("Formato de archivo incorrecto", ex.Message);
             }
         }
 
@@ -71,14 +72,14 @@ namespace TiendaVirtual.Ventanas
             }
             try
             {
-                if (MaqFoto != null)
+                if (MaqFoto != null | txtNombre.Text != "")
                 {
                     resultado = promocional.crearPromocional(txtNombre.Text, MaqFoto);
                     misPromocionales();
                 }
                 else
                 {
-                    MessageBox.Show("Suba una imagen", "Formato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Suba una imagen o hay un espacio vacio", "Formato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)

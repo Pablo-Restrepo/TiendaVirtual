@@ -1,10 +1,5 @@
-﻿using AppGestionConsorcio.datos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
-using TiendaVirtual.Logica;
 using TiendaVirtual.Ventanas;
 
 namespace TiendaVirtual
@@ -17,12 +12,8 @@ namespace TiendaVirtual
         [STAThread]
         static void Main()
         {
-            clsUsuario usuario = new clsUsuario();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Cache.User = "alonso123";
-            usuario = usuario.consultarDatosUser();
-            Cache.PerFoto = usuario.UsuFoto;
             Application.Run(new vtnInicioSesion());
         }
     }

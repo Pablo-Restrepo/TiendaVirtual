@@ -86,6 +86,7 @@ namespace TiendaVirtual.Ventanas
             try
             {
                 OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Archivos de texto (*.jpg)|*.jpg";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     FotoLocation = ofd.FileName.ToString();
@@ -94,7 +95,7 @@ namespace TiendaVirtual.Ventanas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Formato DE archivo incorrecto", ex.Message);
+                MessageBox.Show("Formato de archivo incorrecto", ex.Message);
             }
         }
 
@@ -256,6 +257,14 @@ namespace TiendaVirtual.Ventanas
             aux.idproducto = datosProducto[TabIndex].ProId;
             aux.total = datosProducto[TabIndex].ProPrecio;
             aux.aux = datosProducto[TabIndex].ProPrecio;
+            if (estaGuardado(datosProducto[TabIndex].ProId))
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.like;
+            }
+            else
+            {
+                aux.pbLike.BackgroundImage = Properties.Resources.nolike;
+            }
             return aux;
         }
         private void guardar(object sender, EventArgs e)

@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TiendaVirtual.Logica
 {
@@ -17,7 +14,7 @@ namespace TiendaVirtual.Logica
         public int ComCantidad;
         public byte[] prodFoto = new byte[0];
         public string ProNombre;
-        AccesoDatos dt = new AccesoDatos();
+        private AccesoDatos dt = new AccesoDatos();
 
         public List<clsCompra> consultarCompras()
         {
