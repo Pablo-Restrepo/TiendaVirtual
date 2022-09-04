@@ -16,7 +16,7 @@ Tienda virtual pensada para venden y comprar.
 ## ¿Cómo puedo correr el proyecto?
 * Utilizar Visual Studio 2022.
 * Instalar el NuGet al proyecto: 
-![image](https://user-images.githubusercontent.com/67757313/188303144-73f52e2b-15cb-45e3-afcd-0586d04caf22.png)
+  ![image](https://user-images.githubusercontent.com/67757313/188303144-73f52e2b-15cb-45e3-afcd-0586d04caf22.png)
 * Crear la base de datos con el Script agregado en el proyecto con SQL Server.
 * En el proyecto Datos/AccesoDatos `string cadenaConexion = "Data Source=localhost:1521/xe;User Id=TIENDAVIRTUAL;Password=oracle";` se puede cambiar la ruta de la base de datos
 
@@ -34,7 +34,7 @@ Tienda virtual pensada para venden y comprar.
 ![image](https://user-images.githubusercontent.com/67757313/188302703-11de94a4-b816-4d97-a904-c5a05d37c5db.png)
 ![image](https://user-images.githubusercontent.com/67757313/188302421-f4312469-1a24-4899-95c8-a5146407d92e.png)
 
-## responsive
+## Responsive
 ![image](https://user-images.githubusercontent.com/67757313/188303450-840ab64e-ff8c-4419-8d76-f45df4c7c52c.png)
 
 ## Utilizado para el Proyecto
