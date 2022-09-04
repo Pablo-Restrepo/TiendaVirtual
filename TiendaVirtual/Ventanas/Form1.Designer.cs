@@ -40,8 +40,6 @@ namespace TiendaVirtual
             this.lblSalir = new System.Windows.Forms.Label();
             this.btnPromocionales = new System.Windows.Forms.Button();
             this.lblPromocionales = new System.Windows.Forms.Label();
-            this.btnEstadisticas = new System.Windows.Forms.Button();
-            this.lblEstadisticas = new System.Windows.Forms.Label();
             this.btnVentas = new System.Windows.Forms.Button();
             this.lblVentas = new System.Windows.Forms.Label();
             this.btnCategorias = new System.Windows.Forms.Button();
@@ -54,7 +52,6 @@ namespace TiendaVirtual
             this.lblInicio = new System.Windows.Forms.Label();
             this.pbMenu = new System.Windows.Forms.PictureBox();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.pbPerfil = new TiendaVirtual.Styles.RoundedButton2();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.pbNotifi = new System.Windows.Forms.PictureBox();
@@ -62,6 +59,7 @@ namespace TiendaVirtual
             this.panelCentral = new System.Windows.Forms.Panel();
             this.flowLayoutNotifi = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pbPerfil = new TiendaVirtual.Styles.RoundedButton2();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLinea2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
@@ -82,8 +80,6 @@ namespace TiendaVirtual
             this.panelMenu.Controls.Add(this.lblSalir);
             this.panelMenu.Controls.Add(this.btnPromocionales);
             this.panelMenu.Controls.Add(this.lblPromocionales);
-            this.panelMenu.Controls.Add(this.btnEstadisticas);
-            this.panelMenu.Controls.Add(this.lblEstadisticas);
             this.panelMenu.Controls.Add(this.btnVentas);
             this.panelMenu.Controls.Add(this.lblVentas);
             this.panelMenu.Controls.Add(this.btnCategorias);
@@ -199,7 +195,7 @@ namespace TiendaVirtual
             this.btnPromocionales.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnPromocionales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnPromocionales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPromocionales.Location = new System.Drawing.Point(26, 385);
+            this.btnPromocionales.Location = new System.Drawing.Point(26, 331);
             this.btnPromocionales.Name = "btnPromocionales";
             this.btnPromocionales.Size = new System.Drawing.Size(36, 35);
             this.btnPromocionales.TabIndex = 19;
@@ -213,44 +209,13 @@ namespace TiendaVirtual
             this.lblPromocionales.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblPromocionales.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPromocionales.ForeColor = System.Drawing.Color.White;
-            this.lblPromocionales.Location = new System.Drawing.Point(65, 409);
+            this.lblPromocionales.Location = new System.Drawing.Point(65, 355);
             this.lblPromocionales.Name = "lblPromocionales";
             this.lblPromocionales.Size = new System.Drawing.Size(159, 26);
             this.lblPromocionales.TabIndex = 18;
             this.lblPromocionales.Text = "        Publicidad";
             this.lblPromocionales.Visible = false;
             this.lblPromocionales.Click += new System.EventHandler(this.lblPromocionales_Click);
-            // 
-            // btnEstadisticas
-            // 
-            this.btnEstadisticas.BackgroundImage = global::TiendaVirtual.Properties.Resources.estadisticas;
-            this.btnEstadisticas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEstadisticas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
-            this.btnEstadisticas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnEstadisticas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstadisticas.Location = new System.Drawing.Point(26, 332);
-            this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(36, 35);
-            this.btnEstadisticas.TabIndex = 17;
-            this.btnEstadisticas.UseVisualStyleBackColor = true;
-            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
-            // 
-            // lblEstadisticas
-            // 
-            this.lblEstadisticas.AutoSize = true;
-            this.lblEstadisticas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(29)))), ((int)(((byte)(53)))));
-            this.lblEstadisticas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblEstadisticas.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadisticas.ForeColor = System.Drawing.Color.White;
-            this.lblEstadisticas.Location = new System.Drawing.Point(65, 354);
-            this.lblEstadisticas.Name = "lblEstadisticas";
-            this.lblEstadisticas.Size = new System.Drawing.Size(171, 26);
-            this.lblEstadisticas.TabIndex = 16;
-            this.lblEstadisticas.Text = "        Estadisticas";
-            this.lblEstadisticas.Visible = false;
-            this.lblEstadisticas.Click += new System.EventHandler(this.lblEstadisticas_Click);
             // 
             // btnVentas
             // 
@@ -433,21 +398,6 @@ namespace TiendaVirtual
             this.panelTop.Size = new System.Drawing.Size(921, 91);
             this.panelTop.TabIndex = 1;
             // 
-            // pbPerfil
-            // 
-            this.pbPerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbPerfil.BackgroundImage = global::TiendaVirtual.Properties.Resources.fotoPerfil;
-            this.pbPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbPerfil.FlatAppearance.BorderSize = 0;
-            this.pbPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pbPerfil.Location = new System.Drawing.Point(735, 27);
-            this.pbPerfil.Name = "pbPerfil";
-            this.pbPerfil.Size = new System.Drawing.Size(40, 40);
-            this.pbPerfil.TabIndex = 21;
-            this.pbPerfil.UseVisualStyleBackColor = true;
-            this.pbPerfil.Click += new System.EventHandler(this.pbPerfil_Click);
-            // 
             // txtBuscar
             // 
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(29)))), ((int)(((byte)(53)))));
@@ -531,6 +481,21 @@ namespace TiendaVirtual
             this.flowLayoutPanel1.Size = new System.Drawing.Size(921, 600);
             this.flowLayoutPanel1.TabIndex = 23;
             // 
+            // pbPerfil
+            // 
+            this.pbPerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbPerfil.BackgroundImage = global::TiendaVirtual.Properties.Resources.fotoPerfil;
+            this.pbPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbPerfil.FlatAppearance.BorderSize = 0;
+            this.pbPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pbPerfil.Location = new System.Drawing.Point(735, 27);
+            this.pbPerfil.Name = "pbPerfil";
+            this.pbPerfil.Size = new System.Drawing.Size(40, 40);
+            this.pbPerfil.TabIndex = 21;
+            this.pbPerfil.UseVisualStyleBackColor = true;
+            this.pbPerfil.Click += new System.EventHandler(this.pbPerfil_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -579,8 +544,6 @@ namespace TiendaVirtual
         private Label lblCategorias;
         private Button btnVentas;
         private Label lblVentas;
-        private Button btnEstadisticas;
-        private Label lblEstadisticas;
         private Button btnPromocionales;
         private Label lblPromocionales;
         private Button btnSalir;

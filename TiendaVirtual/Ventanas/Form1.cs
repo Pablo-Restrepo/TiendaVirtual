@@ -72,7 +72,6 @@ namespace TiendaVirtual
                 lblInicio.Visible = true;
                 lblCategorias.Visible = true;
                 lblCompras.Visible = true;
-                lblEstadisticas.Visible = true;
                 lblFavoritos.Visible = true;
                 lblInformacion.Visible = true;
                 lblPromocionales.Visible = true;
@@ -83,8 +82,7 @@ namespace TiendaVirtual
                 btnFavoritos.Location = new Point(50, 182);
                 btnCategorias.Location = new Point(50, 238);
                 btnVentas.Location = new Point(50, 294);
-                btnEstadisticas.Location = new Point(50, 350);
-                btnPromocionales.Location = new Point(50, 406);
+                btnPromocionales.Location = new Point(50, 350);
                 btnInformacion.Location = new Point (50 , btnInformacion.Location.Y - 20);
                 btnSalir.Location = new Point(50, btnSalir.Location.Y - 20);
                 pbLinea.Location = new Point(50, 106);
@@ -101,7 +99,6 @@ namespace TiendaVirtual
                 lblInicio.Visible = false;
                 lblCategorias.Visible = false;
                 lblCompras.Visible = false;
-                lblEstadisticas.Visible = false;
                 lblFavoritos.Visible = false;
                 lblInformacion.Visible = false;
                 lblPromocionales.Visible = false;
@@ -112,8 +109,7 @@ namespace TiendaVirtual
                 btnFavoritos.Location = new Point(26, 170);
                 btnCategorias.Location = new Point(26, 225);
                 btnVentas.Location = new Point(26, 279);
-                btnEstadisticas.Location = new Point(26, 332);
-                btnPromocionales.Location = new Point(26, 385);
+                btnPromocionales.Location = new Point(26, 331);
                 pbLinea.Location = new Point(25, 93);
                 if (bandera2)
                 {
@@ -245,16 +241,6 @@ namespace TiendaVirtual
                 contrato = this
             };
             abrirFormHija(aux);
-        }
-
-        private void btnEstadisticas_Click(object sender, EventArgs e)
-        {
-            abrirFormHija(new vtnEstadisticas());
-        }
-
-        private void lblEstadisticas_Click(object sender, EventArgs e)
-        {
-            abrirFormHija(new vtnEstadisticas());
         }
 
         private void btnPromocionales_Click(object sender, EventArgs e)

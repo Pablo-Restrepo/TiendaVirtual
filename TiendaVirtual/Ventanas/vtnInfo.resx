@@ -121,7 +121,7 @@
     <value>Tienda Virtual
 
 El programa puede gestionar, agrupar, crear, guardar, eliminar productos, 
-comprar, crear promocionales, crear cuentas y estadisticas del vendedor.
+comprar, promocionales y crear cuentas.
 
 NuGet necesario para funcionar: Oracle.ManagedDataAccess. 
 Scripts incluidos para la creacion de la base de datos en SQL Server.

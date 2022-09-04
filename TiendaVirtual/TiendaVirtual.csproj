@@ -144,12 +144,6 @@
     <Compile Include="Ventanas\vtnInfo.Designer.cs">
       <DependentUpon>vtnInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\vtnEstadisticas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ventanas\vtnEstadisticas.Designer.cs">
-      <DependentUpon>vtnEstadisticas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ventanas\vtnFavoritos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,9 +195,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\vtnInfo.resx">
       <DependentUpon>vtnInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ventanas\vtnEstadisticas.resx">
-      <DependentUpon>vtnEstadisticas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\vtnFavoritos.resx">
       <DependentUpon>vtnFavoritos.cs</DependentUpon>

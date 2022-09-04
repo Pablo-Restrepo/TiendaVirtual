@@ -225,7 +225,7 @@ namespace TiendaVirtual.Logica
             string consulta;
             consulta = "SELECT USU_USERNAME FROM PRODUCTO WHERE PRO_ID =" + idproducto;
             dataSet = dt.ejecutarSELECT(consulta);
-            consulta = "INSERT INTO notificacion(usu_username, noti_id, noti_nombre, noti_descripcion, noti_vista) VALUES('" + dataSet.Tables[0].Rows[0].ItemArray[0].ToString() + "'," + rand.Next(0, 99999999) + "," + "'Vendiste!', 'vendiste un producto. Revisa tus estadisticas.', 0)";
+            consulta = "INSERT INTO notificacion(usu_username, noti_id, noti_nombre, noti_descripcion, noti_vista) VALUES('" + dataSet.Tables[0].Rows[0].ItemArray[0].ToString() + "'," + rand.Next(0, 99999999) + "," + "'Vendiste!', 'vendiste un producto.', 0)";
             dt.ejecutarDML(consulta);
         }
         public List<clsProducto> buscarProducto(string buscar)
