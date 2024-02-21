@@ -43,4 +43,4 @@ Tienda virtual pensada para venden y comprar.
 * Forms
 * POO
 
-## Creado por Pablo Jose Restrepo Ruiz
+## Creado por Pablo Restrepo
